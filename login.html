@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | AuctionAura</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="login-page">
+
+        <div class="login-box">
+
+            <!-- Logo -->
+            <div class="logo">
+                Auction<span>Aura</span>
+            </div>
+
+            <!-- Welcome -->
+            <p class="welcome">WELCOME BACK</p>
+
+            <h1>Sign in to your account</h1>
+
+            <p class="subtitle">
+                Continue your journey and discover something extraordinary.
+            </p>
+
+
+            <!-- Login Form -->
+            <form>
+
+                <!-- Email -->
+                <label for="email">Email Address</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="you@example.com"
+                    required
+                >
+
+
+                <!-- Password -->
+                <label for="password">Password</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    required
+                >
+
+
+                <!-- Options -->
+                <div class="options">
+
+                    <label class="remember">
+
+                        <input
+                            type="checkbox"
+                            id="rememberMe"
+                        >
+
+                        <span>Remember me</span>
+
+                    </label>
+
+                    <a href="#">Forgot password?</a>
+
+                </div>
+
+
+                <!-- Login Button -->
+                <button type="submit">
+                    Log In
+                </button>
+
+            </form>
+
+
+            <!-- Divider -->
+            <div class="divider">
+                <span>or</span>
+            </div>
+
+
+            <!-- Register -->
+            <p class="register">
+
+                Don't have an account?
+
+                <a href="register.html">
+                    Create an account
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Your Login JavaScript -->
+    <script src="login.js"></script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,4129 @@
+/* ==============================
+   AUCTION AURA
+   Main Stylesheet
+   ============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #fff8fa;
+    color: #3d3034;
+    font-family: "DM Sans", sans-serif;
+}
+
+
+/* ==============================
+   NAVBAR
+   ============================== */
+
+.navbar {
+    height: 80px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(255, 248, 250, 0.95);
+    border-bottom: 1px solid #f3d6dc;
+}
+
+.logo {
+    font-family: "Playfair Display", serif;
+    font-size: 27px;
+    font-weight: 700;
+    color: #3d3034;
+}
+
+.logo span {
+    color: #c56f82;
+}
+
+nav {
+    display: flex;
+    gap: 35px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #806f75;
+    font-size: 14px;
+    font-weight: 500;
+
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: #b85c72;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+button {
+    font-family: "DM Sans", sans-serif;
+    cursor: pointer;
+    border: none;
+}
+
+.login-btn {
+    background: transparent;
+    color: #6f5b62;
+    padding: 11px 18px;
+    font-weight: 600;
+}
+
+.register-btn {
+    background: #b85c72;
+    color: white;
+    padding: 11px 22px;
+    border-radius: 25px;
+
+    box-shadow: 0 8px 20px rgba(184, 92, 114, 0.2);
+
+    transition: 0.3s;
+}
+
+.register-btn:hover {
+    transform: translateY(-2px);
+}
+
+
+/* ==============================
+   HERO
+   ============================== */
+
+.hero {
+    min-height: 650px;
+    padding: 80px 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.small-heading {
+    color: #b85c72;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(50px, 6vw, 78px);
+    line-height: 1.05;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    display: block;
+    color: #c56f82;
+    font-style: italic;
+}
+
+.hero-text {
+    color: #806f75;
+    font-size: 17px;
+    line-height: 1.8;
+    max-width: 500px;
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.primary-btn {
+    background: #b85c72;
+    color: white;
+
+    padding: 15px 27px;
+    border-radius: 30px;
+
+    font-weight: 600;
+
+    box-shadow: 0 12px 25px rgba(184, 92, 114, 0.22);
+
+    transition: 0.3s;
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+}
+
+.secondary-btn {
+    background: #f3d6dc;
+    color: #9d5266;
+
+    padding: 15px 27px;
+    border-radius: 30px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.secondary-btn:hover {
+    background: #edc5cd;
+}
+
+
+/* ==============================
+   FEATURED AUCTION CARD
+   ============================== */
+
+.hero-card {
+    width: 390px;
+
+    background: white;
+
+    border-radius: 25px;
+
+    padding: 18px;
+
+    box-shadow:
+        0 25px 60px rgba(100, 50, 65, 0.12);
+
+    transform: rotate(2deg);
+
+    transition: 0.4s;
+}
+
+.hero-card:hover {
+    transform: rotate(0deg) translateY(-5px);
+}
+
+.card-label {
+    position: absolute;
+
+    background: #b85c72;
+    color: white;
+
+    padding: 8px 14px;
+
+    border-radius: 20px;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.auction-image {
+    height: 330px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f5dce1,
+            #ead0d7
+        );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 80px;
+    color: #b85c72;
+}
+
+.auction-info {
+    padding: 20px 5px 5px;
+}
+
+.category {
+    color: #b85c72;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+
+    margin-bottom: 8px;
+}
+
+.auction-info h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.auction-bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.label {
+    color: #a08b91;
+    font-size: 9px;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.auction-bottom strong {
+    font-size: 17px;
+}
+
+.time strong {
+    color: #b85c72;
+}
+
+
+/* ==============================
+   FEATURED SECTION
+   ============================== */
+
+.featured {
+    padding: 80px 7%;
+    background: white;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+
+    margin-bottom: 40px;
+}
+
+.section-heading h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 42px;
+}
+
+.section-heading a {
+    color: #b85c72;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.auction-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.auction-card {
+    max-width: 320px;
+    background: #fff8fa;
+
+    padding: 15px;
+
+    border-radius: 20px;
+
+    transition: 0.3s;
+}
+
+.auction-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 20px 40px rgba(100, 50, 65, 0.1);
+}
+
+.product-placeholder {
+    height: 160px;
+
+    border-radius: 15px;
+
+    background: #f3d6dc;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #b85c72;
+
+    font-size: 55px;
+
+    margin-bottom: 20px;
+}
+
+.auction-card h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.bid {
+    color: #806f75;
+    font-size: 13px;
+}
+
+.bid strong {
+    color: #3d3034;
+    margin-left: 5px;
+}
+
+
+/* ==============================
+   FOOTER
+   ============================== */
+
+footer {
+    padding: 45px 7%;
+
+    background: #3d3034;
+    color: #f3d6dc;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer .logo {
+    color: white;
+}
+
+footer .logo span {
+    color: #e3a7b4;
+}
+
+footer p {
+    font-size: 13px;
+    color: #d5bfc5;
+}
+
+
+/* ==============================
+   RESPONSIVE DESIGN
+   ============================== */
+
+@media (max-width: 900px) {
+
+    nav {
+        display: none;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .auction-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading {
+        align-items: start;
+        gap: 15px;
+        flex-direction: column;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .nav-buttons {
+        display: none;
+    }
+
+    .hero {
+        padding: 60px 5%;
+    }
+
+    .hero-card {
+        width: 100%;
+    }
+
+    .auction-image {
+        height: 280px;
+    }
+}
+/* ==============================
+   LOGIN PAGE
+   ============================== */
+
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 20px;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(242, 196, 207, 0.45),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(238, 218, 197, 0.45),
+            transparent 30%
+        ),
+        #fffaf7;
+}
+
+
+/* ==============================
+   LOGIN CARD
+   ============================== */
+
+.login-box {
+    width: 100%;
+    max-width: 430px;
+
+    padding: 48px 45px;
+
+    background: rgba(255, 255, 255, 0.82);
+
+    border: 1px solid #eadcdd;
+    border-radius: 24px;
+
+    box-shadow:
+        0 25px 70px rgba(80, 55, 55, 0.08);
+
+    backdrop-filter: blur(12px);
+}
+
+
+/* ==============================
+   LOGIN LOGO
+   ============================== */
+
+.login-box .logo {
+    text-align: center;
+
+    font-family: "Playfair Display", serif;
+    font-size: 30px;
+    font-weight: 600;
+
+    margin-bottom: 32px;
+}
+
+
+/* ==============================
+   WELCOME TEXT
+   ============================== */
+
+.welcome {
+    text-align: center;
+
+    color: #c56782;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+}
+
+
+/* ==============================
+   LOGIN HEADING
+   ============================== */
+
+.login-box h1 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 32px;
+    font-weight: 600;
+
+    text-align: center;
+
+    color: #3d3034;
+
+    margin-bottom: 12px;
+}
+
+
+/* ==============================
+   SUBTITLE
+   ============================== */
+
+.subtitle {
+    text-align: center;
+
+    color: #827477;
+
+    font-size: 14px;
+    line-height: 1.6;
+
+    margin-bottom: 30px;
+}
+
+
+/* ==============================
+   FORM
+   ============================== */
+
+.login-box form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Labels */
+
+.login-box form > label {
+    font-size: 13px;
+    font-weight: 500;
+
+    color: #4b3d40;
+
+    margin-bottom: 8px;
+}
+
+
+/* Input fields */
+
+.login-box input[type="text"],
+.login-box input[type="email"],
+.login-box input[type="password"] {
+
+    width: 100%;
+
+    padding: 14px 15px;
+
+    border: 1px solid #dfd1d3;
+    border-radius: 10px;
+
+    background: #fffdfc;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+
+    outline: none;
+
+    margin-bottom: 20px;
+
+    transition: all 0.3s ease;
+}
+
+
+/* Input focus */
+
+.login-box input[type="email"]:focus,
+.login-box input[type="password"]:focus {
+
+    border-color: #c56782;
+
+    box-shadow:
+        0 0 0 3px rgba(197, 103, 130, 0.10);
+}
+
+
+/* ==============================
+   LOGIN OPTIONS
+   ============================== */
+
+.options {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 25px;
+
+    font-size: 12px;
+}
+
+
+/* Remember me */
+
+.remember {
+    display: flex !important;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin: 0 !important;
+}
+
+.remember input {
+    accent-color: #c56782;
+}
+
+
+/* Forgot password */
+
+.options a {
+    color: #c56782;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.options a:hover {
+    color: #a94f68;
+
+    text-decoration: underline;
+}
+
+
+/* ==============================
+   LOGIN BUTTON
+   ============================== */
+
+.login-box button {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #c56782;
+    color: white;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+
+.login-box button:hover {
+
+    background: #b45570;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(197, 103, 130, 0.20);
+}
+
+
+/* ==============================
+   DIVIDER
+   ============================== */
+
+.divider {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin: 28px 0;
+
+    color: #a99b9e;
+
+    font-size: 12px;
+}
+
+
+.divider::before,
+.divider::after {
+
+    content: "";
+
+    height: 1px;
+
+    background: #e7dada;
+
+    flex: 1;
+}
+
+
+/* ==============================
+   REGISTER LINK
+   ============================== */
+
+.register {
+
+    text-align: center;
+
+    color: #827477;
+
+    font-size: 13px;
+}
+
+
+.register a {
+
+    color: #c56782;
+
+    text-decoration: none;
+
+    font-weight: 500;
+}
+
+
+.register a:hover {
+
+    text-decoration: underline;
+}
+
+
+/* ==============================
+   MOBILE
+   ============================== */
+
+@media (max-width: 500px) {
+
+    .login-box {
+
+        width: 92%;
+
+        padding: 38px 25px;
+
+        border-radius: 20px;
+    }
+
+    .login-box h1 {
+
+        font-size: 27px;
+    }
+
+    .options {
+
+        font-size: 11px;
+    }
+}
+/* PROPERTY SECTION */
+
+.property-section {
+    padding: 80px 6%;
+}
+
+.property-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.property-card {
+    background: #fff8fa;
+    padding: 20px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.property-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 20px 40px rgba(100, 50, 65, 0.1);
+}
+
+.property-placeholder {
+    height: 200px;
+    background: #f3d6dc;
+    border-radius: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 55px;
+    margin-bottom: 20px;
+}
+
+.property-card h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.property-card .category {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #806f75;
+}
+
+.property-card .description {
+    color: #806f75;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.property-info {
+    font-size: 13px;
+    color: #806f75;
+}
+
+.property-card .bid {
+    color: #806f75;
+    font-size: 13px;
+}
+
+.property-card .bid strong {
+    color: #3d3034;
+    margin-left: 5px;
+}
+
+.property-card a {
+    color: #b85c72;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+}
+/* =================================
+   JEWELLERY PAGE
+   ================================= */
+
+.jewellery-page {
+    min-height: calc(100vh - 80px);
+    padding: 90px 7%;
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #fff0f3 0%,
+            #fff8fa 45%,
+            #fff8fa 100%
+        );
+
+    position: relative;
+    overflow: hidden;
+}
+
+.jewellery-page .welcome {
+    position: relative;
+    z-index: 5;
+
+    color: #c56782;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+
+    margin-bottom: 12px;
+}
+
+.jewellery-page h1 {
+    position: relative;
+    z-index: 5;
+
+    font-family: "Playfair Display", serif;
+    font-size: clamp(48px, 6vw, 76px);
+    font-weight: 600;
+
+    color: #3d3034;
+
+    margin-bottom: 15px;
+}
+
+.jewellery-page .subtitle {
+    position: relative;
+    z-index: 5;
+
+    color: #806f75;
+    font-size: 16px;
+
+    margin-bottom: 55px;
+}
+
+
+/* Jewellery category cards */
+
+.jewellery-categories {
+    position: relative;
+    z-index: 5;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 22px;
+
+    max-width: 1000px;
+    margin: auto;
+}
+
+.category-card {
+    background: rgba(255, 255, 255, 0.75);
+
+    border: 1px solid #eadcdd;
+    border-radius: 20px;
+
+    padding: 30px 20px;
+
+    font-size: 38px;
+
+    box-shadow:
+        0 15px 35px rgba(100, 60, 70, 0.07);
+
+    transition: 0.4s ease;
+}
+
+.category-card h3 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 20px;
+
+    color: #3d3034;
+
+    margin-top: 12px;
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 20px 40px rgba(184, 92, 114, 0.15);
+
+    border-color: #d9a7b3;
+}
+
+
+/* =================================
+   FALLING JEWELLERY ANIMATION
+   ================================= */
+
+.jewellery-page::before,
+.jewellery-page::after {
+    content: "✦  ✧  💍  ✦  ✧  💎  ✦  💍  ✧";
+
+    position: absolute;
+
+    top: -100px;
+    left: 0;
+
+    width: 100%;
+
+    font-size: 25px;
+    letter-spacing: 55px;
+
+    color: #d99aa9;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    animation: jewelleryFall 4s ease-out forwards;
+}
+
+
+/* Second layer */
+
+.jewellery-page::after {
+    top: -180px;
+
+    font-size: 18px;
+
+    letter-spacing: 75px;
+
+    color: #c9a46c;
+
+    animation-delay: 0.4s;
+}
+
+
+/* Falling animation */
+
+@keyframes jewelleryFall {
+
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.8;
+    }
+
+    60% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateY(850px) rotate(15deg);
+        opacity: 0;
+    }
+}
+
+
+/* =================================
+   MOBILE
+   ================================= */
+
+@media (max-width: 800px) {
+
+    .jewellery-categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .jewellery-page {
+        padding: 65px 5%;
+    }
+
+    .jewellery-categories {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .category-card {
+        padding: 22px 10px;
+    }
+
+    .category-card h3 {
+        font-size: 17px;
+    }
+
+}
+.jewellery-section {
+    position: relative;
+    padding: 80px 5%;
+    background: #fffafa;
+    overflow: hidden;
+}
+
+/* Decorative hearts at the top */
+.jewellery-decoration {
+    text-align: center;
+    color: #e6a0b2;
+    font-size: 25px;
+    letter-spacing: 8px;
+    margin-bottom: 20px;
+}
+
+/* Heading */
+.jewellery-section .section-heading {
+    margin-bottom: 40px;
+}
+
+.jewellery-section .section-heading h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 42px;
+    margin-top: 8px;
+}
+
+.jewellery-section .section-heading a {
+    color: #b85c72;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Three product boxes */
+.jewellery-preview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+/* Baby pink cards */
+.jewellery-box {
+    position: relative;
+    background: #fcecef;
+    border: 1px solid #f3cbd5;
+    padding: 32px;
+    min-height: 210px;
+    border-radius: 22px;
+    box-shadow: 0 10px 25px rgba(184, 92, 114, 0.08);
+    transition: 0.3s ease;
+}
+
+/* Hover */
+.jewellery-box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(184, 92, 114, 0.15);
+}
+
+/* Heart inside card */
+.jewellery-box .heart {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #fff8fa;
+    border: 1px solid #efc0cc;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #d47791;
+    font-size: 20px;
+}
+
+/* Category */
+.jewellery-box .category {
+    color: #c36c82;
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+/* Product name */
+.jewellery-box h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 24px;
+    margin-bottom: 12px;
+    color: #4d3840;
+}
+
+/* Description */
+.jewellery-box p {
+    color: #806f75;
+    line-height: 1.6;
+}
+
+/* Link */
+.jewellery-box a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #b85c72;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.jewellery-box a:hover {
+    color: #8f4359;
+}
+
+/* Mobile */
+@media (max-width: 800px) {
+
+    .jewellery-preview {
+        grid-template-columns: 1fr;
+    }
+
+    .jewellery-section .section-heading h2 {
+        font-size: 34px;
+    }
+}
+/* =====================================
+   PROPERTY PAGE
+===================================== */
+
+.property-section {
+    position: relative;
+    min-height: 100vh;
+    padding: 70px 5%;
+    background: #fffafa;
+    overflow: hidden;
+}
+
+
+/* Decorative heading */
+
+.property-decoration {
+    text-align: center;
+    color: #d47791;
+    font-size: 24px;
+    letter-spacing: 8px;
+    margin-bottom: 20px;
+}
+
+
+/* Main heading */
+
+.property-section h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 48px;
+    color: #4d3840;
+    margin: 8px 0;
+}
+
+.property-intro {
+    color: #806f75;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+
+/* Property grid */
+
+.property-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 45px;
+}
+
+
+/* Property cards */
+
+.property-card {
+    position: relative;
+
+    background: #fcecef;
+
+    border: 1px solid #f2c9d4;
+
+    border-radius: 24px;
+
+    padding: 30px;
+
+    min-height: 390px;
+
+    box-shadow:
+        0 10px 30px rgba(184, 92, 114, 0.08);
+
+    transition: 0.3s ease;
+}
+
+
+/* Hover */
+
+.property-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 18px 40px rgba(184, 92, 114, 0.16);
+}
+
+
+/* House area */
+
+.property-icon {
+    height: 130px;
+
+    background: #f8dce3;
+
+    border-radius: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 60px;
+
+    margin-bottom: 25px;
+}
+
+
+/* Heart */
+
+.property-heart {
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    background: #fffafa;
+
+    border: 1px solid #efc0cc;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #d47791;
+
+    font-size: 22px;
+}
+
+
+/* Category */
+
+.property-card .category {
+    color: #c36c82;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    font-weight: 600;
+
+    margin-bottom: 10px;
+}
+
+
+/* Property title */
+
+.property-card h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 25px;
+
+    color: #4d3840;
+
+    margin-bottom: 12px;
+}
+
+
+/* Description */
+
+.property-card > p {
+    color: #806f75;
+
+    line-height: 1.6;
+}
+
+
+/* Property information */
+
+.property-info {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin: 20px 0;
+
+    padding: 10px 0;
+
+    border-top: 1px solid #edc7d0;
+
+    border-bottom: 1px solid #edc7d0;
+
+    color: #806f75;
+
+    font-size: 12px;
+}
+
+
+/* Bid */
+
+.property-card .bid {
+    color: #806f75;
+
+    font-size: 13px;
+}
+
+.property-card .bid strong {
+    color: #3d3034;
+
+    margin-left: 5px;
+}
+
+
+/* Explore link */
+
+.property-card a {
+    display: inline-block;
+
+    margin-top: 12px;
+
+    color: #b85c72;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+.property-card a:hover {
+    color: #8f4359;
+}
+
+
+/* =====================================
+   FALLING HOUSES + STARS
+===================================== */
+
+.property-animation {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    z-index: 9999;
+
+    overflow: hidden;
+}
+
+
+.property-animation span {
+    position: absolute;
+
+    top: -60px;
+
+    font-size: 28px;
+
+    animation: propertyFall 4s linear forwards;
+}
+
+
+/* Different positions */
+
+.property-animation span:nth-child(1) {
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.property-animation span:nth-child(2) {
+    left: 14%;
+    animation-delay: 0.3s;
+}
+
+.property-animation span:nth-child(3) {
+    left: 23%;
+    animation-delay: 0.1s;
+}
+
+.property-animation span:nth-child(4) {
+    left: 32%;
+    animation-delay: 0.5s;
+}
+
+.property-animation span:nth-child(5) {
+    left: 41%;
+    animation-delay: 0.2s;
+}
+
+.property-animation span:nth-child(6) {
+    left: 50%;
+    animation-delay: 0.6s;
+}
+
+.property-animation span:nth-child(7) {
+    left: 59%;
+    animation-delay: 0.1s;
+}
+
+.property-animation span:nth-child(8) {
+    left: 68%;
+    animation-delay: 0.4s;
+}
+
+.property-animation span:nth-child(9) {
+    left: 77%;
+    animation-delay: 0.2s;
+}
+
+.property-animation span:nth-child(10) {
+    left: 85%;
+    animation-delay: 0.5s;
+}
+
+.property-animation span:nth-child(11) {
+    left: 92%;
+    animation-delay: 0.1s;
+}
+
+.property-animation span:nth-child(12) {
+    left: 47%;
+    animation-delay: 0.7s;
+}
+
+
+/* Falling animation */
+
+@keyframes propertyFall {
+
+    0% {
+        transform:
+            translateY(-80px)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 800px) {
+
+    .property-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .property-section h1 {
+        font-size: 38px;
+    }
+
+}
+/* =================================
+   HOW IT WORKS PAGE
+================================= */
+
+.how-page {
+    min-height: 100vh;
+    padding: 90px 7%;
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            #fff0f3 0%,
+            #fff8fa 40%,
+            #ffffff 100%
+        );
+}
+
+
+/* Intro */
+
+.how-page {
+    text-align: center;
+}
+
+.how-page .small-heading {
+    color: #b85c72;
+    letter-spacing: 3px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.how-page h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 56px;
+    color: #3d3034;
+    margin: 10px 0;
+}
+
+.how-intro {
+    color: #806f75;
+    font-size: 15px;
+    margin-bottom: 65px;
+}
+
+
+/* Steps */
+
+.how-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.how-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid #f3d6dc;
+    border-radius: 24px;
+    padding: 35px 25px;
+    text-align: left;
+    transition: 0.3s ease;
+}
+
+.how-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(100, 50, 65, 0.12);
+}
+
+.how-number {
+    color: #c9788c;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.how-icon {
+    width: 60px;
+    height: 60px;
+
+    margin: 25px 0;
+
+    border-radius: 50%;
+
+    background: #f8dfe4;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #b85c72;
+    font-size: 25px;
+}
+
+.how-card h2 {
+    font-family: "Playfair Display", serif;
+    color: #3d3034;
+    margin-bottom: 12px;
+}
+
+.how-card p {
+    color: #806f75;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* =================================
+   AUCTION RULES
+================================= */
+
+.auction-rules {
+    max-width: 1000px;
+    margin: 110px auto 0;
+}
+
+.auction-rules h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 42px;
+    color: #3d3034;
+    margin: 8px 0 40px;
+}
+
+.rules-box {
+    background: #fff;
+    border: 1px solid #f1d9de;
+    border-radius: 25px;
+    overflow: hidden;
+    text-align: left;
+}
+
+.rule {
+    display: flex;
+    gap: 25px;
+    padding: 25px 30px;
+    border-bottom: 1px solid #f4e5e8;
+    transition: 0.3s;
+}
+
+.rule:last-child {
+    border-bottom: none;
+}
+
+.rule:hover {
+    background: #fff7f9;
+}
+
+.rule span {
+    color: #b85c72;
+    font-size: 12px;
+    letter-spacing: 2px;
+    min-width: 25px;
+}
+
+.rule p {
+    margin: 0;
+    color: #806f75;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.rule strong {
+    color: #3d3034;
+}
+
+
+/* =================================
+   READY SECTION
+================================= */
+
+.ready-section {
+    margin: 100px auto 30px;
+    padding: 60px 30px;
+    background: #f8dfe4;
+    border-radius: 30px;
+    max-width: 900px;
+}
+
+.ready-section h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 36px;
+    color: #3d3034;
+    margin: 10px 0 25px;
+}
+
+.ready-section a {
+    display: inline-block;
+    padding: 13px 25px;
+    border-radius: 30px;
+    background: #b85c72;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+
+/* =================================
+   FALLING AUCTION ANIMATION
+================================= */
+
+.auction-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 9999;
+}
+
+
+/* Individual falling objects */
+
+.auction-animation span {
+    position: absolute;
+
+    top: -80px;
+
+    color: #b85c72;
+
+    font-size: 28px;
+
+    opacity: 0;
+
+    animation: auctionFall 4s linear forwards;
+}
+
+
+/* Different positions and speeds */
+
+.auction-animation span:nth-child(1) {
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.auction-animation span:nth-child(2) {
+    left: 14%;
+    animation-delay: 0.2s;
+}
+
+.auction-animation span:nth-child(3) {
+    left: 24%;
+    animation-delay: 0.4s;
+}
+
+.auction-animation span:nth-child(4) {
+    left: 34%;
+    animation-delay: 0.1s;
+}
+
+.auction-animation span:nth-child(5) {
+    left: 44%;
+    animation-delay: 0.5s;
+}
+
+.auction-animation span:nth-child(6) {
+    left: 54%;
+    animation-delay: 0.3s;
+}
+
+.auction-animation span:nth-child(7) {
+    left: 64%;
+    animation-delay: 0.6s;
+}
+
+.auction-animation span:nth-child(8) {
+    left: 73%;
+    animation-delay: 0.2s;
+}
+
+.auction-animation span:nth-child(9) {
+    left: 81%;
+    animation-delay: 0.7s;
+}
+
+.auction-animation span:nth-child(10) {
+    left: 88%;
+    animation-delay: 0.4s;
+}
+
+.auction-animation span:nth-child(11) {
+    left: 94%;
+    animation-delay: 0.8s;
+}
+
+.auction-animation span:nth-child(12) {
+    left: 38%;
+    animation-delay: 0.9s;
+}
+
+
+@keyframes auctionFall {
+
+    0% {
+        transform: translateY(-80px) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.9;
+    }
+
+    80% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 800px) {
+
+    .how-page {
+        padding: 70px 5%;
+    }
+
+    .how-page h1 {
+        font-size: 42px;
+    }
+
+    .how-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .auction-rules h2 {
+        font-size: 34px;
+    }
+
+    .rule {
+        padding: 20px;
+    }
+
+    .ready-section h2 {
+        font-size: 28px;
+    }
+
+}
+/* =================================
+   ABOUT US PAGE
+================================= */
+
+.about-page {
+    min-height: 100vh;
+    padding: 100px 7%;
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            #fff0f3 0%,
+            #fff8fa 45%,
+            #ffffff 100%
+        );
+}
+
+
+/* Heading */
+
+.about-page .small-heading {
+    color: #b85c72;
+    letter-spacing: 3px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.about-page h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 58px;
+    color: #3d3034;
+    margin: 12px 0;
+}
+
+.about-intro {
+    color: #806f75;
+    font-size: 15px;
+    margin-bottom: 55px;
+}
+
+
+/* Main About Card */
+
+.about-card {
+    max-width: 760px;
+    margin: auto;
+
+    padding: 65px 70px;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    border: 1px solid #f1d5dc;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 50px rgba(120, 60, 80, 0.10);
+
+    position: relative;
+}
+
+
+/* Decorative Heart */
+
+.about-decoration {
+    width: 70px;
+    height: 70px;
+
+    margin: 0 auto 30px;
+
+    border-radius: 50%;
+
+    background: #f8dfe4;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #b85c72;
+
+    font-size: 32px;
+}
+
+
+.about-card p {
+    color: #6f5d63;
+
+    font-size: 15px;
+
+    line-height: 1.9;
+
+    margin-bottom: 22px;
+}
+
+
+.about-card h2 {
+    font-family: "Playfair Display", serif;
+
+    color: #3d3034;
+
+    font-size: 30px;
+
+    margin: 20px 0;
+}
+
+
+/* Divider */
+
+.about-divider {
+    color: #b85c72;
+
+    font-size: 25px;
+
+    margin: 35px 0;
+
+    letter-spacing: 12px;
+}
+
+
+.about-card .ps {
+    color: #b85c72;
+
+    font-weight: 600;
+
+    margin-top: 25px;
+}
+
+
+/* Bottom Section */
+
+.about-bottom {
+    margin: 80px auto 20px;
+}
+
+.about-bottom span {
+    color: #b85c72;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+}
+
+.about-bottom h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 36px;
+
+    color: #3d3034;
+
+    margin: 10px 0;
+}
+
+.about-bottom p {
+    color: #806f75;
+
+    font-size: 13px;
+}
+
+
+/* =================================
+   FALLING HEARTS
+================================= */
+
+.heart-animation {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 9999;
+}
+
+
+.heart-animation span {
+    position: absolute;
+
+    top: -60px;
+
+    color: #d77f96;
+
+    font-size: 25px;
+
+    opacity: 0;
+
+    animation: heartFall 5s linear forwards;
+}
+
+
+/* Heart positions */
+
+.heart-animation span:nth-child(1) {
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.heart-animation span:nth-child(2) {
+    left: 13%;
+    animation-delay: 0.2s;
+}
+
+.heart-animation span:nth-child(3) {
+    left: 22%;
+    animation-delay: 0.5s;
+}
+
+.heart-animation span:nth-child(4) {
+    left: 31%;
+    animation-delay: 0.1s;
+}
+
+.heart-animation span:nth-child(5) {
+    left: 40%;
+    animation-delay: 0.7s;
+}
+
+.heart-animation span:nth-child(6) {
+    left: 49%;
+    animation-delay: 0.3s;
+}
+
+.heart-animation span:nth-child(7) {
+    left: 58%;
+    animation-delay: 0.8s;
+}
+
+.heart-animation span:nth-child(8) {
+    left: 67%;
+    animation-delay: 0.4s;
+}
+
+.heart-animation span:nth-child(9) {
+    left: 76%;
+    animation-delay: 0.9s;
+}
+
+.heart-animation span:nth-child(10) {
+    left: 84%;
+    animation-delay: 0.6s;
+}
+
+.heart-animation span:nth-child(11) {
+    left: 91%;
+    animation-delay: 1s;
+}
+
+.heart-animation span:nth-child(12) {
+    left: 97%;
+    animation-delay: 0.5s;
+}
+
+
+/* Falling movement */
+
+@keyframes heartFall {
+
+    0% {
+        transform:
+            translateY(-60px)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.9;
+    }
+
+    80% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =================================
+   ABOUT PAGE MOBILE
+================================= */
+
+@media (max-width: 800px) {
+
+    .about-page {
+        padding: 70px 5%;
+    }
+
+    .about-page h1 {
+        font-size: 42px;
+    }
+
+    .about-card {
+        padding: 45px 25px;
+    }
+
+    .about-card h2 {
+        font-size: 26px;
+    }
+
+}
+/* =========================================
+   K-POP RARE FINDS PAGE
+========================================= */
+
+.kpop-page {
+    background: #fcf8ff;
+    color: #392f45;
+}
+
+
+/* =========================================
+   OPENING DISCO ANIMATION
+========================================= */
+
+.kpop-opening {
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #ead8ff,
+            #c9a9e8 45%,
+            #8061a5 100%
+        );
+
+    z-index: 9999;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    animation: openingDisappear 1s ease 4s forwards;
+}
+
+
+/* Disco Ball */
+
+.disco-ball {
+    position: absolute;
+
+    top: -100px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 150px;
+    height: 150px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #b9a5c8,
+            #ffffff,
+            #88749c
+        );
+
+    box-shadow:
+        0 0 40px rgba(255,255,255,0.8);
+
+    animation:
+        discoSwing 2s ease-in-out infinite;
+}
+
+
+.disco-grid {
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    background:
+        repeating-linear-gradient(
+            45deg,
+            transparent 0px,
+            transparent 14px,
+            rgba(255,255,255,0.7) 15px,
+            transparent 17px
+        );
+}
+
+
+/* Disco Lights */
+
+.disco-light {
+    position: absolute;
+
+    width: 220px;
+    height: 900px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(255,255,255,0.25),
+            transparent
+        );
+
+    transform-origin: top center;
+
+    top: 0;
+
+    filter: blur(4px);
+}
+
+
+.light-one {
+    left: 10%;
+    transform: rotate(-25deg);
+
+    animation: lightMove 2s infinite alternate;
+}
+
+.light-two {
+    left: 30%;
+    transform: rotate(-10deg);
+
+    animation: lightMove 2.5s infinite alternate-reverse;
+}
+
+.light-three {
+    right: 30%;
+    transform: rotate(10deg);
+
+    animation: lightMove 2.2s infinite alternate;
+}
+
+.light-four {
+    right: 10%;
+    transform: rotate(25deg);
+
+    animation: lightMove 2.7s infinite alternate-reverse;
+}
+
+
+/* Opening Text */
+
+.opening-text {
+    position: absolute;
+
+    top: 52%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+
+    color: white;
+
+    animation: openingText 1.5s ease;
+}
+
+
+.opening-text span {
+    letter-spacing: 5px;
+
+    font-size: 11px;
+}
+
+
+.opening-text h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 42px;
+
+    margin: 12px 0;
+}
+
+
+.opening-text p {
+    font-size: 14px;
+
+    opacity: 0.9;
+}
+
+
+/* Opening animations */
+
+@keyframes discoSwing {
+
+    0% {
+        transform:
+            translateX(-50%)
+            rotate(-8deg);
+    }
+
+    50% {
+        transform:
+            translateX(-50%)
+            rotate(8deg);
+    }
+
+    100% {
+        transform:
+            translateX(-50%)
+            rotate(-8deg);
+    }
+}
+
+
+@keyframes lightMove {
+
+    from {
+        transform: rotate(-25deg);
+    }
+
+    to {
+        transform: rotate(25deg);
+    }
+}
+
+
+@keyframes openingText {
+
+    from {
+        opacity: 0;
+        transform:
+            translate(-50%, -40%);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translate(-50%, -50%);
+    }
+}
+
+
+@keyframes openingDisappear {
+
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+
+/* =========================================
+   K-POP HERO
+========================================= */
+
+.kpop-hero {
+    min-height: 620px;
+
+    padding: 100px 8%;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    align-items: center;
+
+    gap: 50px;
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            #ead9ff,
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #fcf8ff,
+            #f2e7fa
+        );
+}
+
+
+.kpop-small {
+    color: #8b63ad;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+
+.kpop-hero h1 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 65px;
+
+    line-height: 1.05;
+
+    color: #33283d;
+
+    margin: 20px 0;
+}
+
+
+.kpop-hero h1 span {
+    color: #9367bd;
+}
+
+
+.kpop-description {
+    max-width: 540px;
+
+    color: #76687d;
+
+    line-height: 1.8;
+
+    font-size: 15px;
+}
+
+.kpop-button {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 25px;
+
+    border: none;
+    border-radius: 30px;
+
+    background: #9a70c3;
+    color: white;
+
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+
+    position: relative;
+    z-index: 10;
+
+    transition: 0.3s;
+}
+
+
+.kpop-button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(120,70,160,0.2);
+}
+
+
+/* =========================================
+   BTS ANIMATION
+========================================= */
+
+.bts-animation {
+    position: relative;
+
+    height: 430px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+}
+
+
+.bts-glow {
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    background: #d8b8f5;
+
+    filter: blur(50px);
+
+    opacity: 0.6;
+
+    animation: purplePulse 2s infinite alternate;
+}
+
+
+.bts-title {
+    position: relative;
+
+    z-index: 2;
+
+    font-size: 90px;
+
+    font-weight: 700;
+
+    letter-spacing: 8px;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 15px #9c6bc5,
+        0 0 35px #9c6bc5;
+
+    animation: btsFloat 3s ease-in-out infinite;
+}
+
+
+.bts-subtitle {
+    position: relative;
+
+    z-index: 2;
+
+    color: #76518e;
+
+    letter-spacing: 5px;
+
+    font-size: 11px;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================
+   LIGHT STICK
+========================================= */
+
+.lightstick {
+    position: absolute;
+
+    right: 25%;
+
+    bottom: 40px;
+
+    width: 55px;
+
+    height: 160px;
+
+    animation: stickFloat 2s ease-in-out infinite;
+}
+
+
+.lightstick-top {
+    width: 70px;
+    height: 70px;
+
+    margin-left: -8px;
+
+    border-radius: 50%;
+
+    background: #eee2ff;
+
+    color: #8f5db8;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    font-size: 38px;
+
+    box-shadow:
+        0 0 15px #d5aaff,
+        0 0 40px #bd85e8,
+        0 0 70px #a764d3;
+}
+
+
+.lightstick-handle {
+    width: 25px;
+
+    height: 90px;
+
+    margin: auto;
+
+    background: linear-gradient(
+        90deg,
+        #4b315b,
+        #8f67a3,
+        #4b315b
+    );
+
+    border-radius: 0 0 12px 12px;
+}
+
+
+.lightstick-glow {
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    top: -20px;
+    left: -30px;
+
+    border-radius: 50%;
+
+    background: #c991ef;
+
+    filter: blur(35px);
+
+    opacity: 0.4;
+
+    z-index: -1;
+}
+
+
+/* Stars */
+
+.kstar {
+    position: absolute;
+
+    color: #9b6ec1;
+
+    font-size: 25px;
+
+    animation: starFloat 2s ease-in-out infinite;
+}
+
+.star-one {
+    top: 80px;
+    left: 20%;
+}
+
+.star-two {
+    top: 150px;
+    right: 15%;
+    animation-delay: .5s;
+}
+
+.star-three {
+    bottom: 100px;
+    left: 15%;
+    animation-delay: .8s;
+}
+
+.star-four {
+    bottom: 150px;
+    right: 10%;
+    animation-delay: 1s;
+}
+
+
+@keyframes purplePulse {
+
+    from {
+        transform: scale(0.9);
+        opacity: .4;
+    }
+
+    to {
+        transform: scale(1.15);
+        opacity: .75;
+    }
+}
+
+
+@keyframes btsFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+
+@keyframes stickFloat {
+
+    0%, 100% {
+        transform: translateY(0) rotate(-3deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+}
+
+
+@keyframes starFloat {
+
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        opacity: .5;
+    }
+
+    50% {
+        transform: translateY(-15px) scale(1.3);
+        opacity: 1;
+    }
+}
+
+
+/* =========================================
+   RARE COLLECTION
+========================================= */
+
+.rare-section {
+    padding: 100px 7%;
+}
+
+
+.rare-heading {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    margin-bottom: 45px;
+}
+
+
+.rare-heading h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 42px;
+
+    color: #3d3045;
+
+    margin-top: 10px;
+}
+
+
+.rare-heading > p {
+    color: #897b90;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   PRODUCT GRID
+========================================= */
+
+.kpop-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+.kpop-card {
+    background: rgba(255,255,255,.8);
+
+    border: 1px solid #eadcf1;
+
+    border-radius: 24px;
+
+    padding: 18px;
+
+    transition: .35s;
+
+    overflow: hidden;
+}
+
+
+.kpop-card:hover {
+    transform: translateY(-7px);
+
+    border-color: #c9a7e2;
+
+    box-shadow:
+        0 18px 35px rgba(110,70,140,.12);
+}
+
+
+.kpop-product {
+    height: 240px;
+
+    border-radius: 18px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #e5ccfa,
+            #c9a9e4
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.product-sparkle {
+    position: absolute;
+
+    top: 25px;
+    right: 30px;
+
+    color: white;
+
+    font-size: 25px;
+
+    animation: starFloat 2s infinite;
+}
+
+
+/* Product objects */
+
+.photocard,
+.album,
+.photocard-set,
+.purple-ticket,
+.army-box {
+    width: 130px;
+
+    height: 175px;
+
+    background: #f9f2ff;
+
+    border: 5px solid #d7b7ed;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    color: #76518e;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 15px 25px rgba(80,40,100,.15);
+
+    transform: rotate(-4deg);
+
+    animation: productFloat 3s ease-in-out infinite;
+}
+
+
+.album {
+    background: #eee0fa;
+
+    border-radius: 5px;
+}
+
+
+.photocard-set {
+    transform: rotate(4deg);
+
+    background: #fff8ff;
+}
+
+
+.purple-ticket {
+    height: 100px;
+
+    transform: rotate(-2deg);
+
+    border-radius: 15px;
+}
+
+
+.army-box {
+    height: 130px;
+
+    transform: rotate(3deg);
+
+    background: #e8d5f8;
+}
+
+
+.photocard small,
+.album small,
+.photocard-set small,
+.purple-ticket small,
+.army-box small {
+    display: block;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    margin-top: 8px;
+}
+
+
+.mini-lightstick {
+    width: 65px;
+    height: 65px;
+
+    border-radius: 50%;
+
+    background: #f5eaff;
+
+    color: #9c63c3;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 35px;
+
+    box-shadow:
+        0 0 25px #b878dc,
+        0 0 55px #d2a3ee;
+
+    animation: stickGlow 1.5s infinite alternate;
+}
+
+
+@keyframes productFloat {
+
+    0%, 100% {
+        transform:
+            translateY(0)
+            rotate(-4deg);
+    }
+
+    50% {
+        transform:
+            translateY(-8px)
+            rotate(2deg);
+    }
+}
+
+
+@keyframes stickGlow {
+
+    from {
+        box-shadow:
+            0 0 15px #b878dc;
+    }
+
+    to {
+        box-shadow:
+            0 0 45px #d8a8f4;
+    }
+}
+
+
+/* Product Text */
+
+.product-category {
+    color: #9669b5;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    margin-top: 18px;
+}
+
+
+.kpop-card h3 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 21px;
+
+    color: #3f3347;
+
+    margin: 8px 0;
+}
+
+
+.product-description {
+    color: #85778a;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+.product-bid {
+    color: #8c7c91;
+
+    font-size: 12px;
+
+    margin-top: 15px;
+}
+
+
+.product-bid strong {
+    color: #71458d;
+
+    font-size: 15px;
+
+    margin-left: 5px;
+}
+
+
+/* =========================================
+   BOTTOM
+========================================= */
+
+.kpop-bottom {
+    text-align: center;
+
+    padding: 100px 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ead9f7,
+            #f9f1ff
+        );
+}
+
+
+.kpop-bottom p {
+    color: #9163ae;
+
+    letter-spacing: 3px;
+
+    font-size: 10px;
+}
+
+
+.kpop-bottom h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 50px;
+
+    color: #57356d;
+
+    margin-top: 15px;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 800px) {
+
+    .kpop-hero {
+        grid-template-columns: 1fr;
+
+        padding: 80px 6%;
+
+        text-align: center;
+    }
+
+    .kpop-hero h1 {
+        font-size: 45px;
+    }
+
+    .kpop-description {
+        margin: auto;
+    }
+
+    .bts-animation {
+        height: 350px;
+    }
+
+    .bts-title {
+        font-size: 65px;
+    }
+
+    .kpop-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .rare-heading {
+        display: block;
+
+        text-align: center;
+    }
+
+    .rare-heading h2 {
+        font-size: 35px;
+    }
+
+    .rare-heading > p {
+        margin-top: 10px;
+    }
+
+}
+/* =========================
+   K-POP HOME SECTION
+   ========================= */
+
+.kpop-home-section {
+    margin: 80px auto;
+    padding: 55px 60px;
+    width: 85%;
+    text-align: center;
+
+    background: linear-gradient(
+        135deg,
+        #fff5fc,
+        #f8edff,
+        #fff8fc
+    );
+
+    border: 1px solid #f1d6e9;
+    border-radius: 30px;
+
+    box-shadow: 0 15px 40px rgba(180, 100, 150, 0.12);
+
+    position: relative;
+    overflow: hidden;
+}
+
+.kpop-hearts,
+.kpop-hearts-bottom {
+    color: #c982a8;
+    font-size: 18px;
+    letter-spacing: 5px;
+}
+
+.kpop-hearts {
+    margin-bottom: 20px;
+}
+
+.kpop-hearts-bottom {
+    margin-top: 30px;
+    opacity: 0.7;
+}
+
+.kpop-home-section .small-heading {
+    color: #b85c87;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.kpop-home-section h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 42px;
+    color: #4b3045;
+    margin: 12px 0;
+}
+
+.kpop-home-section p:not(.small-heading) {
+    color: #735c6d;
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto 25px;
+    line-height: 1.7;
+}
+
+.kpop-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #d98bb0;
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.kpop-button:hover {
+    transform: translateY(-4px);
+    background: #c7769e;
+    box-shadow: 0 8px 20px rgba(180, 100, 150, 0.25);
+}
+
+   /* =========================================
+   VINTAGE MAKEUP PAGE
+========================================= */
+
+.makeup-page {
+    min-height: 100vh;
+    background: #cfeefa;
+    padding: 70px 7%;
+    color: #315565;
+}
+
+.makeup-header {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.makeup-header .small-heading {
+    color: #5f9caf;
+    letter-spacing: 4px;
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+.makeup-header h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 55px;
+    color: #315565;
+    margin: 0;
+}
+
+.makeup-header p {
+    color: #587783;
+    font-size: 15px;
+    margin-top: 12px;
+}
+
+
+/* =========================================
+   PRODUCT GRID
+========================================= */
+
+.makeup-products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.makeup-card {
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(255,255,255,0.9);
+    border-radius: 24px;
+    padding: 28px;
+    min-height: 260px;
+
+    box-shadow: 0 15px 35px rgba(77, 137, 157, 0.15);
+
+    transition: 0.35s ease;
+}
+
+.makeup-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(77, 137, 157, 0.25);
+}
+
+.makeup-card .product-icon {
+    height: 120px;
+    border-radius: 18px;
+    background: #eaf8fd;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 55px;
+    margin-bottom: 22px;
+}
+
+.makeup-card .category {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #719daa;
+    margin-bottom: 8px;
+}
+
+.makeup-card h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 24px;
+    color: #315565;
+    margin: 5px 0 10px;
+}
+
+.makeup-card p {
+    color: #607d87;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.makeup-card .price {
+    color: #3f7384;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+
+/* =========================================
+   OPENING SCREEN
+========================================= */
+
+.makeup-opening {
+    position: fixed;
+    inset: 0;
+
+    background: #cfeefa;
+
+    z-index: 999999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    animation: openingDisappear 0.8s ease 3.6s forwards;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   CUTE COMPACT
+========================================= */
+
+.compact {
+    position: relative;
+
+    width: 210px;
+    height: 150px;
+
+    animation: compactEntrance 0.8s ease forwards;
+}
+
+
+/* Bottom */
+
+.compact-bottom {
+    position: absolute;
+
+    width: 190px;
+    height: 95px;
+
+    left: 10px;
+    bottom: 0;
+
+    background: linear-gradient(
+        145deg,
+        #ffffff,
+        #b9dfea
+    );
+
+    border: 3px solid #79afc1;
+
+    border-radius: 25px 25px 55px 55px;
+
+    box-shadow:
+        0 18px 35px rgba(61, 116, 135, 0.25);
+}
+
+
+/* Powder */
+
+.compact-powder {
+    position: absolute;
+
+    width: 105px;
+    height: 105px;
+
+    left: 42px;
+    bottom: 12px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #fffaf5 0%,
+            #f2e7df 60%,
+            #e3d4cc 100%
+        );
+
+    border: 4px solid #d6c4bd;
+
+    box-shadow:
+        inset 0 5px 15px rgba(100,80,70,0.12);
+}
+
+
+/* Powder heart */
+
+.compact-powder::after {
+    content: "♡";
+
+    position: absolute;
+
+    left: 32px;
+    top: 25px;
+
+    font-size: 40px;
+
+    color: #9fcbd8;
+}
+
+
+/* Lid */
+
+.compact-lid {
+    position: absolute;
+
+    width: 190px;
+    height: 78px;
+
+    left: 10px;
+    bottom: 78px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #d8f3fa
+        );
+
+    border: 3px solid #79afc1;
+
+    border-radius: 55px 55px 20px 20px;
+
+    transform-origin: bottom center;
+
+    animation: compactOpen 1.4s ease 0.7s forwards;
+}
+
+
+/* Mirror */
+
+.compact-lid::after {
+    content: "✦";
+
+    position: absolute;
+
+    width: 125px;
+    height: 45px;
+
+    left: 30px;
+    top: 12px;
+
+    border-radius: 50%;
+
+    background: #eaf9fd;
+
+    border: 2px solid #abd3df;
+
+    color: #9bcbd8;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20px;
+}
+
+
+/* =========================================
+   FALLING MAKEUP
+========================================= */
+
+.makeup-rain {
+    position: absolute;
+    inset: 0;
+
+    overflow: hidden;
+}
+
+.makeup-rain span {
+    position: absolute;
+
+    top: -70px;
+
+    font-size: 30px;
+
+    animation: fallMakeup 3.5s linear forwards;
+
+    opacity: 0;
+}
+
+
+/* different positions */
+
+.makeup-rain span:nth-child(1) {
+    left: 5%;
+    animation-delay: .3s;
+}
+
+.makeup-rain span:nth-child(2) {
+    left: 15%;
+    animation-delay: .7s;
+}
+
+.makeup-rain span:nth-child(3) {
+    left: 27%;
+    animation-delay: .2s;
+}
+
+.makeup-rain span:nth-child(4) {
+    left: 39%;
+    animation-delay: .8s;
+}
+
+.makeup-rain span:nth-child(5) {
+    left: 51%;
+    animation-delay: .4s;
+}
+
+.makeup-rain span:nth-child(6) {
+    left: 63%;
+    animation-delay: .9s;
+}
+
+.makeup-rain span:nth-child(7) {
+    left: 74%;
+    animation-delay: .5s;
+}
+
+.makeup-rain span:nth-child(8) {
+    left: 86%;
+    animation-delay: .1s;
+}
+
+.makeup-rain span:nth-child(9) {
+    left: 94%;
+    animation-delay: .7s;
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes compactEntrance {
+
+    0% {
+        transform: scale(0.2) translateY(50px);
+        opacity: 0;
+    }
+
+    70% {
+        transform: scale(1.08);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+@keyframes compactOpen {
+
+    0% {
+        transform: rotateX(0deg);
+    }
+
+    100% {
+        transform: rotateX(115deg);
+    }
+}
+
+
+@keyframes fallMakeup {
+
+    0% {
+        transform:
+            translateY(-80px)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+@keyframes openingDisappear {
+
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 800px) {
+
+    .makeup-products {
+        grid-template-columns: 1fr;
+    }
+
+    .makeup-header h1 {
+        font-size: 40px;
+    }
+
+    .makeup-page {
+        padding: 50px 6%;
+    }
+}
+.home-special-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 28px;
+
+    max-width: 900px;
+
+    margin: 40px auto;
+}
+/* =====================================
+   VINTAGE MAKEUP HOME CARD
+   ===================================== */
+
+
+   
+
+/* Top hearts */
+
+.makeup-hearts {
+    color: #6fa9c8;
+    font-size: 18px;
+    letter-spacing: 8px;
+    margin-bottom: 20px;
+}
+
+
+/* Small heading */
+
+.makeup-small {
+    color: #5d94b2;
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+
+/* Title */
+
+.makeup-home-card h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 30px;
+    color: #244b60;
+    margin: 10px 0 15px;
+}
+
+
+/* Description */
+
+.makeup-home-card p {
+    color: #557889;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 22px;
+}
+
+
+/* Button */
+
+.makeup-button {
+    display: inline-block;
+
+    background: #8fc9e6;
+    color: white;
+
+    padding: 12px 24px;
+
+    border-radius: 30px;
+
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: all 0.3s ease;
+
+    box-shadow: 0 6px 15px rgba(100, 170, 205, 0.25);
+    margin-top: auto;
+}
+
+.makeup-button:hover {
+    transform: translateX(-50%) scale(1.05);
+}
+
+
+/* Bottom hearts */
+
+.makeup-bottom-hearts {
+    color: #6fa9c8;
+    font-size: 17px;
+    letter-spacing: 7px;
+    margin-top: 22px;
+}
+/* K-POP + MAKEUP CARDS */
+
+.kpop-home-section{
+
+    width: 100%;
+    box-sizing: border-box;
+    overflow: visible;
+}
+/* =================================
+   VINTAGE MAKEUP HOME CARD
+   ================================= */
+
+ 
+
+
+
+/* CARD HOVER */
+
+.makeup-home-section:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 20px 45px rgba(80, 170, 200, 0.25);
+}
+
+
+/* TOP HEARTS */
+
+.makeup-hearts {
+    color: #6bbbd3;
+    font-size: 20px;
+    letter-spacing: 8px;
+    margin-bottom: 18px;
+
+    animation: makeupHeartFloat 3s ease-in-out infinite;
+}
+
+
+/* SMALL HEADING */
+
+.makeup-small {
+    color: #4c9db8;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 4px;
+
+    margin-bottom: 12px;
+}
+
+
+/* TITLE */
+
+.makeup-home-section h2 {
+    color: #244c5c;
+
+    font-family: Georgia, serif;
+
+    font-size: 32px;
+
+    margin: 10px 0 15px;
+}
+
+
+/* DESCRIPTION */
+
+.makeup-description {
+    color: #416b78;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    max-width: 360px;
+
+    margin: 0 auto 25px;
+}
+
+
+/* BUTTON */
+
+.makeup-button {
+    display: inline-block;
+
+    padding: 13px 28px;
+
+    background: #79c9e3;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 30px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: all 0.3s ease;
+
+    box-shadow: 0 8px 20px rgba(80, 170, 200, 0.2);
+}
+
+
+/* BUTTON HOVER */
+
+.makeup-button:hover {
+    background: #5bb4d1;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(80, 170, 200, 0.3);
+}
+
+
+/* BOTTOM HEARTS */
+
+.makeup-bottom-hearts {
+    color: #5fb5cf;
+
+    font-size: 18px;
+
+    letter-spacing: 8px;
+
+    margin-top: 28px;
+}
+
+
+/* HEART ANIMATION */
+
+@keyframes makeupHeartFloat {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =================================
+   K-POP + MAKEUP GRID
+   ================================= */
+
+.auction-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 330px);
+
+    justify-content: center;
+
+    align-items: stretch;
+
+    gap: 25px;
+}
+.kpop-home-section {
+    height: 360px;
+    box-sizing: border-box;
+}
+
+
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .auction-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .makeup-home-section {
+        min-height: 320px;
+        padding: 35px 25px;
+    }
+
+    .makeup-home-section h2 {
+        font-size: 28px;
+    }
+
+}
+
+
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .auction-grid {
+        grid-template-columns: 1fr !important;
+        max-width: 400px !important;
+    }
+
+    
+}
+/* ================================
+   FINAL K-POP + MAKEUP CARD FIX
+   ================================ */
+
+.auction-grid {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, 330px);
+    justify-content: center;
+    align-items: stretch;
+    gap: 30px;
+}
+
+.kpop-home-section,
+.makeup-home-section {
+    width: 330px;
+    min-width: 330px;
+    height: 360px;
+    min-height: 360px;
+    box-sizing: border-box;
+
+    margin: 0;
+}
+
+/* Keep the content inside the cards */
+.kpop-home-section,
+.makeup-home-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Mobile */
+@media (max-width: 750px) {
+    .auction-grid {
+        grid-template-columns: 1fr;
+        max-width: 330px;
+        gap: 25px;
+    }
+
+    .kpop-home-section,
+    .makeup-home-section {
+        width: 330px;
+        min-width: 330px;
+       
+        min-height: 360px;
+    }
+}
+/* K-POP BUTTON FIX */
+
+.kpop-home-section .kpop-button {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative;
+    z-index: 10;
+    padding: 13px 28px;
+    margin-top: auto;
+    background: #d98bad;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.kpop-home-section .kpop-button:hover {
+    transform: translateX(-50%) translateY(-3px);
+}
+
+/* ALIGN BOTH EXPLORE BUTTONS */
+
+.kpop-home-section,
+.makeup-home-section {
+    position: relative;
+}
+
+.kpop-home-section .kpop-button,
+.makeup-home-section .makeup-button {
+    position: absolute;
+    bottom: 55px;
+    left: 50%;
+    transform: translateX(-50%);
+}

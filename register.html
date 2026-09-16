@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account | AuctionAura</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="login-page">
+
+        <div class="login-box">
+
+            <!-- Logo -->
+            <div class="logo">
+                Auction<span>Aura</span>
+            </div>
+
+            <!-- Heading -->
+            <p class="welcome">JOIN US</p>
+
+            <h1>Create your account</h1>
+
+            <p class="subtitle">
+                Join AuctionAura and discover something extraordinary.
+            </p>
+
+            <!-- Registration Form -->
+            <form id="registerForm">
+
+                <!-- Name -->
+                <label for="name">Full Name</label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Your full name"
+                    required
+                >
+
+                <!-- Email -->
+                <label for="email">Email Address</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="you@example.com"
+                    required
+                >
+
+                <!-- Password -->
+                <label for="password">Password</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Create a password"
+                    minlength="6"
+                    required
+                >
+
+                <!-- Confirm Password -->
+                <label for="confirmPassword">Confirm Password</label>
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Confirm your password"
+                    minlength="6"
+                    required
+                >
+
+                <!-- Register Button -->
+                <button type="submit" class="login-btn">
+                    Create Account
+                </button>
+
+            </form>
+
+            <!-- Divider -->
+            <div class="divider">
+                <span>or</span>
+            </div>
+
+            <!-- Login -->
+            <p class="register">
+                Already have an account?
+                <a href="login.html">Sign in</a>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Registration JavaScript -->
+    <script src="register.js"></script>
+
+
+</body>
+</html>

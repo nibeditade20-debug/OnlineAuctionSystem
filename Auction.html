@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Explore Auctions | AuctionAura</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================================
+           AUCTION PAGE
+        ========================================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #fffaf7;
+            color: #4f5962;
+            font-family: Arial, sans-serif;
+        }
+
+
+        /* =========================================
+           5 SECOND OPENING ANIMATION
+        ========================================= */
+
+        .auction-opening {
+            position: fixed;
+            inset: 0;
+
+            z-index: 99999;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #dff6ff 0%,
+                    #f7efff 48%,
+                    #fff8f1 100%
+                );
+
+            animation: openingFade 1s ease 4.5s forwards;
+        }
+
+
+        /* OPENING TEXT */
+
+        .opening-text {
+            position: relative;
+            z-index: 10;
+
+            text-align: center;
+
+            animation: textFloat 2.5s ease-in-out infinite;
+        }
+
+        .opening-text p {
+            margin: 0 0 14px;
+
+            color: #b87594;
+
+            font-size: 12px;
+            font-weight: 600;
+
+            letter-spacing: 5px;
+        }
+
+        .opening-text h1 {
+            margin: 0;
+
+            color: #56616b;
+
+            font-family: Georgia, serif;
+
+            font-size: 42px;
+            line-height: 1.2;
+        }
+
+
+        /* =========================================
+           RAINBOW
+        ========================================= */
+
+        .rainbow {
+            position: absolute;
+
+            left: 50%;
+            bottom: -115px;
+
+            width: 570px;
+            height: 285px;
+
+            transform: translateX(-50%) scale(.7);
+
+            border-radius: 570px 570px 0 0;
+
+            background:
+                radial-gradient(
+                    ellipse at center bottom,
+                    transparent 0 50%,
+                    #f2a7c7 51% 55%,
+                    #f6c5a5 56% 60%,
+                    #f7e5a5 61% 65%,
+                    #b9ddb8 66% 70%,
+                    #a8dbe8 71% 75%,
+                    #c7b7df 76% 80%,
+                    transparent 81%
+                );
+
+            opacity: 0;
+
+            animation:
+                rainbowAppear 3s ease .4s forwards;
+        }
+
+
+        /* =========================================
+           CLOUDS
+        ========================================= */
+
+        .cloud {
+            position: absolute;
+
+            color: white;
+
+            font-size: 100px;
+
+            opacity: .85;
+
+            filter: blur(.3px);
+
+            text-shadow:
+                0 8px 20px rgba(100, 120, 140, .12);
+        }
+
+        .cloud-one {
+            top: 13%;
+            left: -130px;
+
+            animation:
+                cloudMoveOne 5s ease-in-out infinite;
+        }
+
+        .cloud-two {
+            top: 58%;
+            right: -140px;
+
+            font-size: 125px;
+
+            animation:
+                cloudMoveTwo 6s ease-in-out infinite;
+        }
+
+        .cloud-three {
+            top: 8%;
+            right: 17%;
+
+            font-size: 55px;
+
+            opacity: .65;
+
+            animation:
+                cloudMoveThree 4s ease-in-out infinite;
+        }
+
+
+        /* =========================================
+           ANIMATIONS
+        ========================================= */
+
+        @keyframes rainbowAppear {
+
+            0% {
+                opacity: 0;
+                transform: translateX(-50%) scale(.7);
+            }
+
+            50% {
+                opacity: .8;
+            }
+
+            100% {
+                opacity: .85;
+                transform: translateX(-50%) scale(1);
+            }
+        }
+
+
+        @keyframes cloudMoveOne {
+
+            0% {
+                transform: translateX(0) translateY(0);
+            }
+
+            50% {
+                transform: translateX(280px) translateY(-20px);
+            }
+
+            100% {
+                transform: translateX(0) translateY(0);
+            }
+        }
+
+
+        @keyframes cloudMoveTwo {
+
+            0% {
+                transform: translateX(0) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-240px) translateY(-25px);
+            }
+
+            100% {
+                transform: translateX(0) translateY(0);
+            }
+        }
+
+
+        @keyframes cloudMoveThree {
+
+            0% {
+                transform: translateX(0) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-60px) translateY(18px);
+            }
+
+            100% {
+                transform: translateX(0) translateY(0);
+            }
+        }
+
+
+        @keyframes textFloat {
+
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+
+        @keyframes openingFade {
+
+            0% {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            100% {
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+            }
+        }
+
+
+        /* =========================================
+           NAVBAR
+        ========================================= */
+
+        .auction-navbar {
+            width: 100%;
+
+            padding: 22px 7%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            background: #fffaf7;
+
+            border-bottom: 1px solid #f0e4e0;
+        }
+
+        .auction-logo {
+            color: #4d5961;
+
+            font-family: Georgia, serif;
+
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .auction-nav {
+            display: flex;
+
+            gap: 28px;
+
+            align-items: center;
+        }
+
+        .auction-nav a {
+            color: #6f7880;
+
+            text-decoration: none;
+
+            font-size: 14px;
+        }
+
+        .auction-nav a:hover {
+            color: #b87594;
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .auction-hero {
+            padding: 80px 7% 60px;
+
+            text-align: center;
+        }
+
+        .auction-small {
+            margin-bottom: 12px;
+
+            color: #b87594;
+
+            font-size: 12px;
+            font-weight: 600;
+
+            letter-spacing: 4px;
+        }
+
+        .auction-hero h1 {
+            margin: 0 0 18px;
+
+            color: #4f5962;
+
+            font-family: Georgia, serif;
+
+            font-size: 52px;
+        }
+
+        .auction-hero p {
+            max-width: 600px;
+
+            margin: auto;
+
+            color: #737b82;
+
+            font-size: 16px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================================
+           CATEGORY FILTERS
+        ========================================= */
+
+        .auction-categories {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+
+            margin: 15px auto 55px;
+        }
+
+        .auction-category {
+            padding: 10px 20px;
+
+            border: 1px solid #e8d8df;
+
+            border-radius: 30px;
+
+            background: #fff;
+
+            color: #737b82;
+
+            cursor: pointer;
+
+            font-size: 13px;
+        }
+
+        .auction-category:hover,
+        .auction-category.active {
+            background: #f3c3d8;
+
+            color: white;
+
+            border-color: #f3c3d8;
+        }
+
+
+        /* =========================================
+           AUCTION GRID
+        ========================================= */
+
+        .auction-grid {
+            width: 86%;
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 28px;
+
+            padding-bottom: 90px;
+        }
+
+
+        /* =========================================
+           AUCTION CARD
+        ========================================= */
+
+        .auction-card {
+            padding: 22px;
+
+            background: rgba(255, 255, 255, .9);
+
+            border: 1px solid #eee1e5;
+
+            border-radius: 25px;
+
+            transition: .3s ease;
+        }
+
+        .auction-card:hover {
+            transform: translateY(-7px);
+
+            box-shadow:
+                0 15px 35px rgba(100, 120, 140, .12);
+        }
+
+
+        .auction-image {
+            height: 190px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 20px;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #fcecf3,
+                    #e9f7fa
+                );
+
+            font-size: 65px;
+        }
+
+
+        .auction-tag {
+            margin-bottom: 8px;
+
+            color: #b87594;
+
+            font-size: 10px;
+            font-weight: bold;
+
+            letter-spacing: 2px;
+        }
+
+
+        .auction-card h2 {
+            margin: 0 0 10px;
+
+            color: #4f5962;
+
+            font-family: Georgia, serif;
+
+            font-size: 23px;
+        }
+
+
+        .auction-card p {
+            margin: 0 0 18px;
+
+            color: #7b8389;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+
+        .auction-bottom {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            padding-top: 15px;
+
+            border-top: 1px solid #eee7e8;
+        }
+
+
+        .bid-label {
+            color: #969da1;
+
+            font-size: 11px;
+        }
+
+
+        .bid-price {
+            display: block;
+
+            margin-top: 4px;
+
+            color: #4f5962;
+
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+
+        .bid-button {
+            padding: 10px 18px;
+
+            border: none;
+
+            border-radius: 25px;
+
+            background: #a9dce7;
+
+            color: white;
+
+            cursor: pointer;
+
+            font-size: 12px;
+            font-weight: 600;
+
+            transition: .3s ease;
+        }
+
+        .bid-button:hover {
+            background: #8fcbd8;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        .auction-footer {
+            padding: 35px 7%;
+
+            background: #29272b;
+
+            color: #eee;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .auction-footer strong {
+            font-family: Georgia, serif;
+
+            font-size: 18px;
+        }
+
+        .auction-footer span {
+            color: #bdb7bb;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 800px) {
+
+            .auction-navbar {
+                padding: 18px 5%;
+            }
+
+            .auction-nav {
+                gap: 12px;
+            }
+
+            .auction-nav a {
+                font-size: 12px;
+            }
+
+            .auction-hero {
+                padding: 60px 6% 40px;
+            }
+
+            .auction-hero h1 {
+                font-size: 40px;
+            }
+
+            .auction-grid {
+                width: 88%;
+
+                grid-template-columns: 1fr;
+
+                max-width: 450px;
+            }
+
+            .opening-text h1 {
+                font-size: 34px;
+            }
+
+            .rainbow {
+                width: 430px;
+                height: 215px;
+            }
+
+            .auction-footer {
+                flex-direction: column;
+
+                gap: 10px;
+
+                text-align: center;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         5 SECOND DREAMY OPENING
+    ========================================= -->
+
+    <div class="auction-opening">
+
+        <div class="rainbow"></div>
+
+        <div class="cloud cloud-one">☁</div>
+
+        <div class="cloud cloud-two">☁</div>
+
+        <div class="cloud cloud-three">☁</div>
+
+        
+
+    </div>
+
+
+
+    <!-- =========================================
+         NAVIGATION
+    ========================================= -->
+
+    <header class="auction-navbar">
+
+        <div class="auction-logo">
+            AuctionAura
+        </div>
+
+        <nav class="auction-nav">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="how-it-works.html">
+                How It Works
+            </a>
+
+            <a href="About.html">
+                About
+            </a>
+
+            <a href="login.html">
+                Sign In
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =========================================
+         HERO
+    ========================================= -->
+
+    <section class="auction-hero">
+
+        <div class="auction-small">
+            ✦ CURATED FINDS ✦
+        </div>
+
+        <h1>
+            Explore Auctions
+        </h1>
+
+        <p>
+            Discover beautiful collectibles, vintage treasures,
+            jewellery, K-Pop finds and rare pieces waiting
+            for their next owner.
+        </p>
+
+    </section>
+
+
+
+    <!-- =========================================
+         CATEGORIES
+    ========================================= -->
+
+    <div class="auction-categories">
+
+        <button class="auction-category active">
+            All
+        </button>
+
+        <button class="auction-category">
+            Collectibles
+        </button>
+
+        <button class="auction-category">
+            Jewellery
+        </button>
+
+        <button class="auction-category">
+            K-Pop
+        </button>
+
+        <button class="auction-category">
+            Vintage
+        </button>
+
+        <button class="auction-category">
+            Beauty
+        </button>
+
+    </div>
+
+
+
+    <!-- =========================================
+         AUCTION CARDS
+    ========================================= -->
+
+    <section class="auction-grid">
+
+
+        <!-- CARD 1 -->
+
+        <article class="auction-card">
+
+            <div class="auction-image">
+                🕰️
+            </div>
+
+            <div class="auction-tag">
+                VINTAGE
+            </div>
+
+            <h2>
+                Classic Vintage Watch
+            </h2>
+
+            <p>
+                A timeless vintage piece with
+                a beautiful classic design.
+            </p>
+
+            <div class="auction-bottom">
+
+                <div>
+                    <span class="bid-label">
+                        CURRENT BID
+                    </span>
+
+                    <span class="bid-price">
+                        ₹8,500
+                    </span>
+                </div>
+
+                <button class="bid-button">
+                    Place Bid
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CARD 2 -->
+
+        <article class="auction-card">
+
+            <div class="auction-image">
+                💎
+            </div>
+
+            <div class="auction-tag">
+                JEWELLERY
+            </div>
+
+            <h2>
+                Diamond Bracelet
+            </h2>
+
+            <p>
+                Elegant jewellery featuring a
+                refined and delicate design.
+            </p>
+
+            <div class="auction-bottom">
+
+                <div>
+                    <span class="bid-label">
+                        CURRENT BID
+                    </span>
+
+                    <span class="bid-price">
+                        ₹18,500
+                    </span>
+                </div>
+
+                <button class="bid-button">
+                    Place Bid
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CARD 3 -->
+
+        <article class="auction-card">
+
+            <div class="auction-image">
+                💿
+            </div>
+
+            <div class="auction-tag">
+                K-POP
+            </div>
+
+            <h2>
+                Rare K-Pop Album
+            </h2>
+
+            <p>
+                A collector's album preserved for
+                passionate K-Pop fans.
+            </p>
+
+            <div class="auction-bottom">
+
+                <div>
+                    <span class="bid-label">
+                        CURRENT BID
+                    </span>
+
+                    <span class="bid-price">
+                        ₹6,750
+                    </span>
+                </div>
+
+                <a href="collector-bid.html" class="bid-button">
+                Place Bid
+            </a>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CARD 4 -->
+
+        <article class="auction-card">
+
+            <div class="auction-image">
+                💄
+            </div>
+
+            <div class="auction-tag">
+                BEAUTY
+            </div>
+
+            <h2>
+                Vintage Makeup Compact
+            </h2>
+
+            <p>
+                A rare vintage beauty treasure
+                perfect for collectors.
+            </p>
+
+            <div class="auction-bottom">
+
+                <div>
+                    <span class="bid-label">
+                        CURRENT BID
+                    </span>
+
+                    <span class="bid-price">
+                        ₹4,200
+                    </span>
+                </div>
+
+                <button class="bid-button">
+                    Place Bid
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CARD 5 -->
+
+        <article class="auction-card">
+
+            <div class="auction-image">
+                📷
+            </div>
+
+            <div class="auction-tag">
+                COLLECTIBLES
+            </div>
+
+            <h2>
+                Classic Collector's Piece
+            </h2>
+
+            <p>
+                A unique collectible piece
+                perfect for passionate collectors.
+            </p>
+
+            <div class="auction-bottom">
+
+                <div>
+                    <span class="bid-label">
+                        CURRENT BID
+                    </span>
+
+                    <span class="bid-price">
+                        ₹6,750
+                    </span>
+                </div>
+
+                <button class="bid-button">
+                    Place Bid
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CARD 6 -->
+
+        <article class="auction-card">
+
+            <div class="auction-image">
+                🎀
+            </div>
+
+            <div class="auction-tag">
+                RARE FINDS
+            </div>
+
+            <h2>
+                Limited Edition Treasure
+            </h2>
+
+            <p>
+                A charming rare find waiting
+                to become part of your collection.
+            </p>
+
+            <div class="auction-bottom">
+
+                <div>
+                    <span class="bid-label">
+                        CURRENT BID
+                    </span>
+
+                    <span class="bid-price">
+                        ₹9,900
+                    </span>
+                </div>
+
+                <button class="bid-button">
+                    Place Bid
+                </button>
+
+            </div>
+
+        </article>
+
+
+    </section>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer class="auction-footer">
+
+        <strong>
+            AuctionAura
+        </strong>
+
+        <span>
+            Where beautiful finds meet winning bids. ♡
+        </span>
+
+    </footer>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================= -->
+
+    <script>
+
+        /* CATEGORY BUTTONS */
+
+        const categories =
+            document.querySelectorAll(".auction-category");
+
+        categories.forEach(button => {
+
+            button.addEventListener("click", function () {
+
+                categories.forEach(item => {
+                    item.classList.remove("active");
+                });
+
+                this.classList.add("active");
+
+            });
+
+        });
+
+
+        /* BID BUTTON */
+
+        const bidButtons =
+            document.querySelectorAll(".bid-button");
+
+        bidButtons.forEach(button => {
+
+            button.addEventListener("click", function () {
+
+                alert(
+                    "Please sign in to place a bid."
+                );
+
+            });
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
