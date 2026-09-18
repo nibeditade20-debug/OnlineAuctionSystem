@@ -396,48 +396,11 @@
     </footer>
     
 
+
+
 <!-- Supabase -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="auth.js"></script>
-<script>
-const SUPABASE_URL = "https://sbwuvdfzeshvoovduboq.supabase.co";
-const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_xgfzuys_8arH-sbc3g6xTA_MMFimzee";
-
-const auctionSupabase = window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_PUBLISHABLE_KEY
-);
-
-async function updateNavbar() {
-    const authArea = document.getElementById("auth-area");
-
-    if (!authArea) return;
-
-    const { data: { session } } = await auctionSupabase.auth.getSession();
-    if (session && session.user) {
-        const user = session.user;
-
-        const name =
-            user.user_metadata?.full_name ||
-            user.user_metadata?.name ||
-            user.email.split("@")[0];
-
-        authArea.innerHTML = `
-            <a href="Profile.html" class="profile-button">
-                <span class="profile-pic">👤</span>
-                <span>${name}</span>
-            </a>
-        `;
-    }
-}
-
-updateNavbar();
-
-auctionSupabase.auth.onAuthStateChange(() => {
-    updateNavbar();
-});
-</script>
-
 
 </body>
 
