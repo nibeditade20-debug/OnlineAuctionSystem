@@ -1070,8 +1070,15 @@ const step = 100;
 document.querySelector(".current-price").textContent =
     "₹" + startingPrice.toLocaleString("en-IN");
 
-document.querySelector(".range-box strong").textContent =
+const rangeBoxes =
+    document.querySelectorAll(".range-box strong");
+
+rangeBoxes[0].textContent =
     "₹" + minimum.toLocaleString("en-IN");
+
+rangeBoxes[1].textContent =
+    "₹" + maximum.toLocaleString("en-IN");
+    
 
 document.querySelectorAll(".range-info span")[0].textContent =
     "₹" + minimum.toLocaleString("en-IN");
@@ -1177,6 +1184,15 @@ document
             .classList.add("show");
 
         celebration();
+
+    });
+    /* CONTINUE EXPLORING */
+
+document
+    .getElementById("closeSuccess")
+    .addEventListener("click", function () {
+
+        window.location.href = "Auction.html";
 
     });
     </script>
