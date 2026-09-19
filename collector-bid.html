@@ -1023,6 +1023,7 @@
 ========================================= */
 
 const params = new URLSearchParams(window.location.search);
+const auctionId = params.get("id");
 
 const productTitle =
     params.get("title") || "Auction Item";
@@ -1036,8 +1037,22 @@ const productDescription =
 
 const startingPrice =
     Number(params.get("price")) || 0;
+    
+let currentBid = startingPrice;
 
+(async () => {
+  if (auctionId) {
+    const { data, error } = await authClient
+      .from("auctions")
+      .select("*")
+      .eq("id", auctionId)
+      .single();
 
+    if (!error && data) {
+      currentBid = data.current_bid || data.starting_price;
+    }
+  }
+})();
 /* =========================================
    UPDATE PRODUCT DETAILS
 ========================================= */
