@@ -1126,16 +1126,66 @@ document.addEventListener("click", function (event) {
     const price =
         priceText.replace(/[^\d.]/g, "") || "0";
 
-    const params = new URLSearchParams({
-        title: title,
-        category: category,
-        description: description,
-        price: price
-    });
+   <script>
+document.querySelectorAll(".bid-button").forEach(button => {
+    button.addEventListener("click", async function (event) {
+        event.preventDefault();
 
+        const card = this.closest(".auction-card");
+        const title = card.querySelector("h2").textContent.trim();
+
+        const { data, error } = await window.authClient
+            .from("auctions")
+            .select("id")
+            .eq("title", title)
+            .maybeSingle();
+
+        if (error) {
+            alert(error.message);
+            return;
+        }
+
+        if (!data) {
+            alert("Auction not found in database.");
+            return;
+        }
+
+        window.location.href =
+            "collector-bid.html?id=" + encodeURIComponent(data.id);
+    });
+});
+</script>
     window.location.href =
         "collector-bid.html?" + params.toString();
 
+});
+</script>
+<script src="auth.js"></script>
+<script src="auction-dynamic.js"></script>
+
+<script src="auth.js"></script>
+
+<script>
+document.querySelectorAll(".bid-button").forEach(button => {
+    button.addEventListener("click", async function (event) {
+        event.preventDefault();
+
+        const oldUrl = new URL(this.href);
+        const title = oldUrl.searchParams.get("title");
+
+        const { data, error } = await window.authClient
+            .from("auctions")
+            .select("id")
+            .eq("title", title)
+            .single();
+
+        if (error || !data) {
+            alert("Auction not found in database.");
+            return;
+        }
+
+        window.location.href = `collector-bid.html?id=${data.id}`;
+    });
 });
 </script>
 </body>
