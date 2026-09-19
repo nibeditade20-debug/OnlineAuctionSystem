@@ -1019,197 +1019,166 @@
     <script>
 
         /* =========================================
-           BID SETTINGS
-        ========================================= */
+   LOAD SELECTED PRODUCT
+========================================= */
 
-        let bid = 6850;
+const params = new URLSearchParams(window.location.search);
 
-        const minimum = 6850;
+const productTitle =
+    params.get("title") || "Auction Item";
 
-        const maximum = 20000;
+const productCategory =
+    params.get("category") || "COLLECTIBLES";
 
-        const step = 100;
+const productDescription =
+    params.get("description") ||
+    "Place your bid and make this beautiful treasure yours.";
 
-
-        const bidAmount =
-            document.getElementById("bidAmount");
-
-        const progress =
-            document.getElementById("progress");
-
-
-        /* =========================================
-           UPDATE BID
-        ========================================= */
-
-        function updateBid() {
-
-            bidAmount.textContent =
-                "₹" + bid.toLocaleString("en-IN");
+const startingPrice =
+    Number(params.get("price")) || 0;
 
 
-            let percentage =
-                ((bid - minimum) /
-                (maximum - minimum)) * 100;
+/* =========================================
+   UPDATE PRODUCT DETAILS
+========================================= */
+
+document.querySelector(".product-details h1").textContent =
+    productTitle;
+
+document.querySelector(".category").textContent =
+    "✦ " + productCategory.toUpperCase() + " ✦";
+
+document.querySelector(".description").textContent =
+    productDescription;
 
 
-            progress.style.width =
-                Math.max(5, percentage) + "%";
+/* =========================================
+   BID SETTINGS
+========================================= */
+
+let minimum = startingPrice + 100;
+
+let bid = minimum;
+
+const maximum = Math.max(minimum + 10000, 20000);
+
+const step = 100;
+
+
+/* UPDATE PRICE DISPLAY */
+
+document.querySelector(".current-price").textContent =
+    "₹" + startingPrice.toLocaleString("en-IN");
+
+document.querySelector(".range-box strong").textContent =
+    "₹" + minimum.toLocaleString("en-IN");
+
+document.querySelectorAll(".range-info span")[0].textContent =
+    "₹" + minimum.toLocaleString("en-IN");
+
+document.querySelectorAll(".range-info span")[1].textContent =
+    "₹" + maximum.toLocaleString("en-IN");
+
+
+/* =========================================
+   BID ELEMENTS
+========================================= */
+
+const bidAmount =
+    document.getElementById("bidAmount");
+
+const progress =
+    document.getElementById("progress");
+
+
+/* =========================================
+   UPDATE BID
+========================================= */
+
+function updateBid() {
+
+    bidAmount.textContent =
+        "₹" + bid.toLocaleString("en-IN");
+
+    const percentage =
+        ((bid - minimum) /
+        (maximum - minimum)) * 100;
+
+    progress.style.width =
+        Math.max(5, percentage) + "%";
+}
+
+updateBid();
+
+
+/* =========================================
+   PLUS BUTTON
+========================================= */
+
+document
+    .getElementById("plus")
+    .addEventListener("click", function () {
+
+        if (bid < maximum) {
+
+            bid += step;
+
+            updateBid();
         }
 
-
-        /* =========================================
-           PLUS
-        ========================================= */
-
-        document
-            .getElementById("plus")
-            .addEventListener("click", function () {
-
-                if (bid < maximum) {
-
-                    bid += step;
-
-                    updateBid();
-                }
-
-            });
+    });
 
 
-        /* =========================================
-           MINUS
-        ========================================= */
+/* =========================================
+   MINUS BUTTON
+========================================= */
 
-        document
-            .getElementById("minus")
-            .addEventListener("click", function () {
+document
+    .getElementById("minus")
+    .addEventListener("click", function () {
 
-                if (bid > minimum) {
+        if (bid > minimum) {
 
-                    bid -= step;
+            bid -= step;
 
-                    updateBid();
-                }
-
-            });
-
-
-        /* =========================================
-           CELEBRATION
-        ========================================= */
-
-        function celebration() {
-
-            const items = [
-
-                "💸",
-                "💰",
-                "✨",
-                "⭐",
-                "🌟",
-                "💫",
-                "✦",
-                "♡"
-
-            ];
-
-
-            for (
-                let i = 0;
-                i < 65;
-                i++
-            ) {
-
-                const item =
-                    document.createElement("div");
-
-
-                item.className =
-                    "celebration";
-
-
-                item.textContent =
-                    items[
-                        Math.floor(
-                            Math.random()
-                            * items.length
-                        )
-                    ];
-
-
-                item.style.left =
-                    Math.random() * 100 + "vw";
-
-
-                item.style.fontSize =
-                    (12 + Math.random() * 22)
-                    + "px";
-
-
-                item.style.animationDelay =
-                    Math.random() * 1.5
-                    + "s";
-
-
-                item.style.animationDuration =
-                    (2 + Math.random() * 2)
-                    + "s";
-
-
-                document.body.appendChild(item);
-
-
-                setTimeout(
-                    () => item.remove(),
-                    5000
-                );
-            }
-
+            updateBid();
         }
 
-
-        /* =========================================
-           PLACE BID
-        ========================================= */
-
-        document
-            .getElementById("placeBid")
-            .addEventListener("click", function () {
-
-                document
-                    .getElementById("successAmount")
-                    .textContent =
-                    "₹" + bid.toLocaleString("en-IN");
+    });
 
 
-                document
-                    .getElementById("successScreen")
-                    .classList.add("show");
+/* =========================================
+   PLACE BID
+========================================= */
 
+document
+    .getElementById("placeBid")
+    .addEventListener("click", async function () {
 
-                celebration();
+        const {
+            data: { session },
+            error
+        } = await window.authClient.auth.getSession();
 
-            });
+        if (error || !session) {
 
+            alert("Please sign in to place a bid.");
 
-        /* =========================================
-           CLOSE SUCCESS
-        ========================================= */
+            return;
+        }
 
         document
-            .getElementById("closeSuccess")
-            .addEventListener("click", function () {
+            .getElementById("successAmount")
+            .textContent =
+            "₹" + bid.toLocaleString("en-IN");
 
-                window.location.href =
-                    "auction.html";
+        document
+            .getElementById("successScreen")
+            .classList.add("show");
 
-            });
+        celebration();
 
-
-        /* INITIAL */
-
-        updateBid();
-
+    });
     </script>
 
 
