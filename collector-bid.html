@@ -1049,8 +1049,16 @@ let currentBid = startingPrice;
       .single();
 
     if (!error && data) {
-      currentBid = data.current_bid || data.starting_price;
-    }
+  currentBid = data.current_bid || data.starting_price;
+
+  minimum = currentBid + 100;
+  bid = minimum;
+
+  document.querySelector(".current-price").textContent =
+    "₹" + currentBid.toLocaleString("en-IN");
+
+  updateBid();
+}
   }
 })();
 /* =========================================
@@ -1174,42 +1182,54 @@ document
 ========================================= */
 
 document
-    .getElementById("placeBid")
-    .addEventListener("click", async function () {
+  .getElementById("placeBid")
+  .addEventListener("click", async function () {
 
-        const {
-            data: { session },
-            error
-        } = await window.authClient.auth.getSession();
+    const {
+      data: { session },
+      error: authError
+    } = await window.authClient.auth.getSession();
 
-        if (error || !session) {
+    if (authError || !session) {
+      alert("Please sign in to place a bid.");
+      return;
+    }
 
-            alert("Please sign in to place a bid.");
+    if (!auctionId) {
+      alert("Auction ID is missing.");
+      return;
+    }
 
-            return;
-        }
+    const { error: bidError } = await window.authClient
+      .from("bids")
+      .insert({
+        auction_id: auctionId,
+        bidder_id: session.user.id,
+        amount: bid
+      });
 
-        document
-            .getElementById("successAmount")
-            .textContent =
-            "₹" + bid.toLocaleString("en-IN");
+    if (bidError) {
+      alert(bidError.message);
+      return;
+    }
 
-        document
-            .getElementById("successScreen")
-            .classList.add("show");
+    const { error: updateError } = await window.authClient
+      .from("auctions")
+      .update({ current_bid: bid })
+      .eq("id", auctionId);
 
-        celebration();
+    if (updateError) {
+      alert(updateError.message);
+      return;
+    }
 
-    });
-    /* CONTINUE EXPLORING */
+    document.getElementById("successAmount").textContent =
+      "₹" + bid.toLocaleString("en-IN");
 
-document
-    .getElementById("closeSuccess")
-    .addEventListener("click", function () {
+    document.getElementById("successScreen").classList.add("show");
 
-        window.location.assign("./Auction.html");
-
-    });
+    celebration();
+  });
     </script>
 
 

@@ -61,11 +61,10 @@ function createProductCard(product) {
                 <span class="bid-price">₹${Number(product.current_bid || product.starting_price).toLocaleString("en-IN")}</span>
             </div>
 
-            <a
-    href="collector-bid.html?id=${encodeURIComponent(product.id)}"
-    class="bid-button"
->
-    Place Bid
+            <a href="collector-bid.html?id=${encodeURIComponent(product.id)}"
+   class="bid-button">
+  Place Bid
+
 </a>
         </div>
     `;
