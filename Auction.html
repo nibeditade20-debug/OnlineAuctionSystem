@@ -1083,22 +1083,33 @@
         });
 
 
+        
+
         /* BID BUTTON */
 
-        const bidButtons =
-            document.querySelectorAll(".bid-button");
+const bidButtons = document.querySelectorAll(".bid-button");
 
-        bidButtons.forEach(button => {
+bidButtons.forEach(button => {
 
-            button.addEventListener("click", function () {
+    button.addEventListener("click", async function (event) {
 
-                alert(
-                    "Please sign in to place a bid."
-                );
+        event.preventDefault();
 
-            });
+        const { data: { session }, error } =
+            await window.authClient.auth.getSession();
 
-        });
+        if (error || !session) {
+
+            alert("Please sign in to place a bid.");
+
+            return;
+        }
+
+        window.location.href = "collector-bid.html";
+
+    });
+
+});
 
     </script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
