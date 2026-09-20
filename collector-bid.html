@@ -1227,7 +1227,7 @@ document
       return;
     }
     currentBid = bid;
-    minimum = currentBid + 100;
+   minimum = currentBid + bidIncrement;
 
 document.querySelector(".current-price").textContent =
     "₹" + currentBid.toLocaleString("en-IN");
