@@ -1,4 +1,7 @@
-
+const makeupSupabase = window.supabase.createClient(
+"https://sbwuvdfzeshvoovduboq.supabase.co"
+    "sb_publishable_xgfzuys_8arH-sbc3g6xTA_MMFimzee"
+);
 document.addEventListener("DOMContentLoaded", () => {
     // Remove login and register buttons
     document.querySelector(".nav-buttons")?.remove();
@@ -42,8 +45,7 @@ function updateCurrentBid() {
                     openBidMonitor(card, currentBid, (newBid) => {
                         currentBid = newBid;
 
-                        controls.querySelector("span").textContent =
-                            currentBid.toLocaleString("en-IN");
+                        
 
                         showThanksAnimation();
                     });
