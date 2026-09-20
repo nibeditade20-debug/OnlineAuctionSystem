@@ -4127,3 +4127,239 @@ footer p {
     left: 50%;
     transform: translateX(-50%);
 }
+/* ================================
+   IMPROVED FEATURED AUCTIONS
+================================ */
+
+.featured {
+    width: 100%;
+    max-width: 1300px;
+    margin: 80px auto;
+    padding: 0 40px;
+}
+
+.featured .section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.featured .section-heading h2 {
+    font-size: 48px;
+    margin-top: 10px;
+}
+
+/* Two products in each row */
+.auction-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+    width: 100%;
+}
+
+/* Bigger auction cards */
+.auction-card {
+    min-height: 230px;
+    padding: 32px;
+    border-radius: 24px;
+    background: #fff7fa;
+    border: 1px solid #f3dce5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+.auction-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(190, 95, 130, 0.15);
+}
+
+/* Category */
+.auction-card .category {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #c45b7c;
+    margin-bottom: 15px;
+}
+
+/* Product title */
+.auction-card h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 27px;
+    color: #44363b;
+    margin-bottom: 15px;
+}
+
+/* Description */
+.auction-card .description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #776970;
+    margin-bottom: 20px;
+}
+
+/* Current bid */
+.auction-card .bid {
+    font-size: 15px;
+    color: #817179;
+    border-top: 1px solid #eddce3;
+    padding-top: 18px;
+}
+
+.auction-card .bid strong {
+    font-size: 21px;
+    color: #b94e72;
+    margin-left: 5px;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .featured {
+        padding: 0 20px;
+        margin: 50px auto;
+    }
+
+    .featured .section-heading h2 {
+        font-size: 34px;
+    }
+
+    .auction-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .auction-card {
+        padding: 25px;
+    }
+}
+
+
+/* CATEGORY SECTION */
+
+.category-section {
+    padding: 80px 6%;
+    background: #fffafb;
+}
+
+.category-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.category-heading p {
+    color: #bd668c;
+    font-size: 14px;
+    letter-spacing: 4px;
+    font-weight: bold;
+}
+
+.category-heading span {
+    color: #806d76;
+    font-size: 16px;
+}
+
+/* TWO BIG CARDS */
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    max-width: 1400px;
+    margin: auto;
+}
+
+.category-card {
+    min-height: 430px;
+    padding: 48px;
+    border-radius: 28px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 12px 35px rgba(100, 60, 80, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+}
+
+.kpop-card {
+    background: linear-gradient(135deg, #f5e5ff, #ead4f5);
+}
+
+.makeup-card {
+    background: linear-gradient(135deg, #fff0f0, #f8d9dc);
+}
+
+.category-content {
+    max-width: 430px;
+    position: relative;
+    z-index: 2;
+}
+
+.category-label {
+    color: #bd668c;
+    font-size: 13px;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.category-card h2 {
+    color: #49313e;
+    font-family: Georgia, serif;
+    font-size: clamp(34px, 4vw, 58px);
+    margin: 24px 0;
+}
+
+.category-card p:not(.category-label) {
+    color: #705e68;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.category-button {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 17px 30px;
+    border-radius: 40px;
+    background: #c96f9b;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 8px 20px rgba(190, 90, 140, 0.25);
+    transition: 0.3s ease;
+}
+
+.category-button:hover {
+    background: #a94f7c;
+    transform: translateY(-3px);
+}
+
+.category-decoration {
+    color: #c477a0;
+    font-size: 24px;
+    letter-spacing: 8px;
+    margin-top: 25px;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .category-card {
+        min-height: 380px;
+        padding: 32px;
+    }
+
+    .category-card h2 {
+        font-size: 38px;
+    }
+}
