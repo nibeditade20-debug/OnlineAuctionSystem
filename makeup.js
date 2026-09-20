@@ -1,5 +1,5 @@
 const makeupSupabase = window.supabase.createClient(
-"https://sbwuvdfzeshvoovduboq.supabase.co"
+    "https://sbwuvdfzeshvoovduboq.supabase.co",
     "sb_publishable_xgfzuys_8arH-sbc3g6xTA_MMFimzee"
 );
 document.addEventListener("DOMContentLoaded", () => {
