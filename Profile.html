@@ -1710,7 +1710,7 @@ async function loadBidData() {
 
     /* GET ALL BIDS MADE BY THIS USER */
 
-    const { data: bids, error } = await supabase
+   const { data: bids, error } = await supabaseClient
         .from("bids")
         .select(`
             id,

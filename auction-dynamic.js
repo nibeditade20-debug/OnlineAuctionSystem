@@ -25,9 +25,11 @@ async function loadSellerProducts() {
         return;
     }
 
-    allProducts = data || [];
+        allProducts = data || [];
 
-    allProducts.forEach(product => {
+        auctionGrid.innerHTML = "";
+
+        allProducts.forEach(product => {
         const card = createProductCard(product);
         auctionGrid.appendChild(card);
     });
