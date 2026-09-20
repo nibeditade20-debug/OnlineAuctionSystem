@@ -36,6 +36,7 @@ async function loadSellerProducts() {
 function createProductCard(product) {
     const card = document.createElement("article");
     card.className = "auction-card";
+    card.dataset.id = product.id;
     card.dataset.category = product.category || "";
 
     const image = product.image_url
@@ -58,7 +59,9 @@ function createProductCard(product) {
         <div class="auction-bottom">
             <div>
                 <span class="bid-label">STARTING PRICE</span>
-                <span class="bid-price">₹${Number(product.current_bid || product.starting_price).toLocaleString("en-IN")}</span>
+        <span class="bid-price dynamic-bid-price">
+         ₹${Number(product.current_bid || product.starting_price).toLocaleString("en-IN")}
+</span>
             </div>
 
             <a href="collector-bid.html?id=${encodeURIComponent(product.id)}"
@@ -111,3 +114,31 @@ categoryButtons.forEach(button => {
 });
 
 loadSellerProducts();
+async function refreshBidPrices() {
+    const { data, error } = await auctionSupabase
+        .from("auctions")
+        .select("title, current_bid, starting_price");
+
+    if (error || !data) return;
+
+    document.querySelectorAll(".auction-card").forEach(card => {
+        const titleElement = card.querySelector("h2");
+        const priceElement = card.querySelector(".bid-price");
+
+        if (!titleElement || !priceElement) return;
+
+        const auction = data.find(item =>
+            item.title.trim() === titleElement.textContent.trim()
+        );
+
+        if (auction) {
+            priceElement.textContent =
+                "₹" + Number(
+                    auction.current_bid || auction.starting_price
+                ).toLocaleString("en-IN");
+        }
+    });
+}
+
+setInterval(refreshBidPrices, 3000);
+refreshBidPrices();

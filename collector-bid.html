@@ -1222,6 +1222,13 @@ document
       alert(updateError.message);
       return;
     }
+    currentBid = bid;
+    minimum = currentBid + 100;
+
+document.querySelector(".current-price").textContent =
+    "₹" + currentBid.toLocaleString("en-IN");
+
+updateBid();
 
     document.getElementById("successAmount").textContent =
       "₹" + bid.toLocaleString("en-IN");
@@ -1230,6 +1237,9 @@ document
 
     celebration();
   });
+  document.getElementById("closeSuccess").addEventListener("click", function () {
+    window.location.href = "Auction.html";
+});
     </script>
 
 
