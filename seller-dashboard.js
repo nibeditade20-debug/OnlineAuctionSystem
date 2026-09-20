@@ -197,6 +197,9 @@ productForm.addEventListener("submit", async function(event) {
     const bidIncrement = Number(
         document.getElementById("bidIncrement").value
     );
+    const maxPrice = Number(
+    document.getElementById("maxPrice").value
+    );
 
     const startTime = document
         .getElementById("startTime")
@@ -219,10 +222,16 @@ productForm.addEventListener("submit", async function(event) {
         return;
     }
 
-    if (!productName || !category || startingPrice < 0 || bidIncrement <= 0) {
-        alert("Please enter valid product details.");
-        return;
-    }
+    if (
+    !productName ||
+    !category ||
+    startingPrice < 0 ||
+    bidIncrement <= 0 ||
+    maxPrice <= startingPrice
+) {
+    alert("Maximum price must be greater than starting price.");
+    return;
+}
 
     const { error } = await sellerSupabase
         .from("auctions")
@@ -236,6 +245,7 @@ productForm.addEventListener("submit", async function(event) {
                 starting_price: startingPrice,
                 current_bid: startingPrice,
                 bid_increment: bidIncrement,
+                max_price: maxPrice,
                 start_time: startDate.toISOString(),
                 end_time: endDate.toISOString(),
                 status: "scheduled"

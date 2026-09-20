@@ -1044,15 +1044,18 @@ let currentBid = startingPrice;
   if (auctionId) {
     const { data, error } = await authClient
       .from("auctions")
-      .select("*")
+     .select("current_bid, starting_price, bid_increment, max_price")
       .eq("id", auctionId)
-      .single();
+      .maybeSingle();
 
     if (!error && data) {
-  currentBid = data.current_bid || data.starting_price;
+  currentBid = Number(data.current_bid ?? data.starting_price);
+  bidIncrement = Number(data.bid_increment);
+  maximum = Number(data.max_price);
 
-  minimum = currentBid + 100;
+  minimum = currentBid + bidIncrement;
   bid = minimum;
+  updateRangeLabels();
 
   document.querySelector(".current-price").textContent =
     "₹" + currentBid.toLocaleString("en-IN");
@@ -1079,14 +1082,12 @@ document.querySelector(".description").textContent =
    BID SETTINGS
 ========================================= */
 
-let minimum = startingPrice + 100;
-
+let bidIncrement = 100;
+let minimum = startingPrice + bidIncrement;
 let bid = minimum;
+let maximum = 0;
 
-const maximum = Math.max(minimum + 10000, 20000);
-
-const step = 100;
-
+const step = bidIncrement;
 
 /* UPDATE PRICE DISPLAY */
 
@@ -1095,6 +1096,13 @@ document.querySelector(".current-price").textContent =
 
 const rangeBoxes =
     document.querySelectorAll(".range-box strong");
+function updateRangeLabels() {
+    rangeBoxes[0].textContent =
+        "₹" + minimum.toLocaleString("en-IN");
+
+    rangeBoxes[1].textContent =
+        "₹" + maximum.toLocaleString("en-IN");
+}
 
 rangeBoxes[0].textContent =
     "₹" + minimum.toLocaleString("en-IN");

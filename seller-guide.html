@@ -1,0 +1,383 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seller Guide | AuctionAura</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(135deg, #fff0f6, #ffd6e5);
+    color: #701d39;
+    font-family: "DM Sans", sans-serif;
+}
+
+.container {
+    width: 92%;
+    max-width: 1400px;
+    margin: auto;
+    padding: 45px 0;
+}
+
+.hero {
+    text-align: center;
+    padding: 35px 20px;
+}
+
+.hero h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(42px, 6vw, 78px);
+    color: #b71955;
+    margin: 10px 0;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #963b5d;
+}
+
+.sparkle {
+    font-size: 28px;
+}
+
+.section {
+    background: rgba(255, 250, 252, 0.92);
+    border: 2px solid #f6b3c9;
+    border-radius: 30px;
+    padding: 35px;
+    margin: 30px 0;
+    box-shadow: 0 12px 30px rgba(160, 30, 75, 0.08);
+}
+
+.section h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 34px;
+    color: #a7194f;
+    margin-top: 0;
+}
+
+.section-subtitle {
+    color: #9c4c68;
+    margin-bottom: 28px;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+}
+
+.edit-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.step {
+    background: #fff0f5;
+    border: 1px solid #f5b3c9;
+    border-radius: 22px;
+    padding: 23px;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.step:hover {
+    transform: translateY(-7px) rotate(-1deg);
+    box-shadow: 0 10px 22px rgba(190, 45, 100, 0.13);
+}
+
+.number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #e83f78;
+    color: white;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.step h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 20px;
+    color: #8d2048;
+}
+
+.step p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #85445d;
+}
+
+.tip {
+    background: #ffd1e1;
+    border-radius: 14px;
+    padding: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #a51e55;
+}
+
+.note {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(120deg, #ffbdd5, #fff0f6);
+    border: 3px dashed #e64c85;
+    text-align: center;
+    padding: 50px 30px;
+}
+
+.note h2 {
+    font-size: 42px;
+}
+
+.note p {
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.quote {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 18px 28px;
+    background: #f477a4;
+    color: white;
+    border-radius: 18px;
+    font-family: "Playfair Display", serif;
+    font-size: 25px;
+    font-style: italic;
+}
+
+.hearts {
+    position: absolute;
+    font-size: 35px;
+    animation: floatHeart 3s ease-in-out infinite;
+}
+
+.heart-one {
+    top: 25px;
+    left: 35px;
+}
+
+.heart-two {
+    right: 35px;
+    bottom: 25px;
+    animation-delay: 1s;
+}
+
+@keyframes floatHeart {
+    0%, 100% {
+        transform: translateY(0) rotate(-8deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(8deg);
+    }
+}
+
+.footer {
+    text-align: center;
+    color: #a04a6b;
+    padding: 25px;
+    font-size: 14px;
+}
+
+@media (max-width: 1100px) {
+    .steps {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .edit-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+    .section {
+        padding: 22px;
+    }
+
+    .steps,
+    .edit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section h2 {
+        font-size: 28px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header class="hero">
+        <div class="sparkle">🎀 ✨ 💗 ✨ 🎀</div>
+        <h1>Seller Page</h1>
+        <p>
+            Turn your treasures into someone else's obsession.
+            <br>
+            You bring the product, we bring the drama. 💅
+        </p>
+    </header>
+
+    <section class="section">
+        <h2>💗 How to Add a Product</h2>
+        <p class="section-subtitle">
+            It's super easy. No law degree required. 👩‍⚖️
+        </p>
+
+        <div class="steps">
+
+            <div class="step">
+                <span class="number">1</span>
+                <h3>📸 Add Photos</h3>
+                <p>
+                    Upload clear pictures of your product.
+                    Good lighting is your best friend.
+                </p>
+                <div class="tip">More sparkle, more attention! ✨</div>
+            </div>
+
+            <div class="step">
+                <span class="number">2</span>
+                <h3>📝 Add Details</h3>
+                <p>
+                    Enter the product name, description,
+                    category and condition.
+                </p>
+                <div class="tip">Tell the truth, bestie. 💋</div>
+            </div>
+
+            <div class="step">
+                <span class="number">3</span>
+                <h3>💰 Set Price</h3>
+                <p>
+                    Choose a reasonable starting price.
+                    Don't price it like it's the Crown Jewels.
+                </p>
+                <div class="tip">Know your worth! 👑</div>
+            </div>
+
+            <div class="step">
+                <span class="number">4</span>
+                <h3>📅 Set Duration</h3>
+                <p>
+                    Select how long your auction will run,
+                    such as 1, 3 or 7 days.
+                </p>
+                <div class="tip">Time is literally money. ⏰</div>
+            </div>
+
+            <div class="step">
+                <span class="number">5</span>
+                <h3>🚀 Publish</h3>
+                <p>
+                    Click the publish button and let
+                    the bidding chaos begin!
+                </p>
+                <div class="tip">Go make us proud, seller! 💗</div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>💅 How to Change Your Price</h2>
+        <p class="section-subtitle">
+            Changed your mind? Totally understandable.
+        </p>
+
+        <div class="edit-grid">
+
+            <div class="step">
+                <span class="number">1</span>
+                <h3>📋 Open Listings</h3>
+                <p>
+                    Go to your profile and open
+                    the My Listings section.
+                </p>
+            </div>
+
+            <div class="step">
+                <span class="number">2</span>
+                <h3>✏️ Click Edit</h3>
+                <p>
+                    Find the product you want
+                    to update and select Edit.
+                </p>
+            </div>
+
+            <div class="step">
+                <span class="number">3</span>
+                <h3>💸 Update Details</h3>
+                <p>
+                    Change the starting price,
+                    description, photos or duration.
+                </p>
+            </div>
+
+            <div class="step">
+                <span class="number">4</span>
+                <h3>💾 Save Changes</h3>
+                <p>
+                    Click Save and check that
+                    your updated listing looks perfect.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="tip" style="margin-top:25px; text-align:center;">
+            ⚠️ Important: Price changes may be restricted once bidding has started.
+        </div>
+    </section>
+
+    <section class="section note">
+        <span class="hearts heart-one">💗</span>
+        <span class="hearts heart-two">💕</span>
+
+        <h2>🎀 A Little Note...</h2>
+
+        <p>
+            Don't treat this as a real thing —
+            I am trying to get an <strong>A+</strong>
+            and become very good at Software Engineering.
+        </p>
+
+        <p>
+            And as Elle Woods says:
+        </p>
+
+        <div class="quote">
+            "I know how valuable I can be."
+        </div>
+
+        <p>
+            Dream big. Work hard. Stay pink. 💗
+        </p>
+    </section>
+
+    <footer class="footer">
+        Made with love, ambition and a suspicious amount of pink. 🎀
+        <br>
+        © AuctionAura
+    </footer>
+
+</div>
+<a href="seller-guide.html">Sell</a>
+</body>
+</html>

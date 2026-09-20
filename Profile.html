@@ -1123,6 +1123,70 @@
         grid-template-columns: 1fr;
     }
 }
+/* BID GRID */
+.bid-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    padding: 20px;
+}
+
+/* Keep empty message centered */
+.bid-grid:not(:has(.bid-item)) {
+    display: block;
+}
+
+/* Individual bid boxes */
+.bid-item {
+    position: relative;
+    background: #fff8fa;
+    border: 1.5px solid #f2a8bb;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(150, 30, 65, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.bid-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Heart holding each card */
+.bid-item::before {
+    content: "♥";
+    position: absolute;
+    left: -19px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 38px;
+    height: 38px;
+    background: #e94275;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    box-shadow: 0 5px 15px rgba(233, 66, 117, 0.35);
+    animation: gentleHeartShake 2.5s ease-in-out infinite;
+}
+
+@keyframes gentleHeartShake {
+    0%, 100% {
+        transform: translateY(-50%) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-50%) rotate(8deg);
+    }
+}
+
+/* Mobile */
+@media (max-width: 800px) {
+    .bid-grid {
+        grid-template-columns: 1fr;
+    }
+}
     </style>
 
 </head>
@@ -1406,11 +1470,7 @@
                 </p>
 
 
-                <div
-                    class="empty-auction"
-                    id="activeBidsList"
-                >
-
+                <div class="empty-auction bid-grid" id="activeBidsList"></div>
                     <div class="empty-icon">
                         ✨
                     </div>
@@ -1437,10 +1497,7 @@
                 </p>
 
 
-                <div
-                    class="empty-auction"
-                    id="bidHistoryList"
-                >
+               <div class="empty-auction bid-grid" id="bidHistoryList"></div>
 
                     <div class="empty-icon">
                         🕊️
