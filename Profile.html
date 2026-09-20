@@ -985,7 +985,144 @@
             }
 
         }
+        .withdraw-button {
+    margin-top: 12px;
+    padding: 8px 16px;
+    border: 1px solid #bd2948;
+    border-radius: 20px;
+    background: #fff0f3;
+    color: #a31535;
+    cursor: pointer;
+    font-weight: 600;
+}
 
+.withdraw-button:hover {
+    background: #bd2948;
+    color: white;
+}
+/* =================================
+   BID GRID DESIGN
+================================= */
+
+.bid-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    padding: 20px 0;
+}
+
+/* Individual bid card */
+.bid-card {
+    position: relative;
+    background: #fff8fa;
+    border: 1.5px solid #f2a8bb;
+    border-radius: 20px;
+    padding: 25px;
+    min-height: 190px;
+    box-shadow: 0 5px 15px rgba(150, 30, 65, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.bid-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Hearts holding the cards */
+.bid-card::before {
+    content: "♥";
+    position: absolute;
+    left: -18px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 38px;
+    height: 38px;
+    background: #e94275;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
+    box-shadow: 0 5px 15px rgba(233, 66, 117, 0.35);
+    animation: heartShake 2.5s ease-in-out infinite;
+}
+
+/* Small decorative heart */
+.bid-card::after {
+    content: "♡";
+    position: absolute;
+    right: 18px;
+    top: 12px;
+    color: #e94275;
+    font-size: 22px;
+    animation: floatingHeart 3s ease-in-out infinite;
+}
+
+/* Heart animation */
+@keyframes heartShake {
+    0%, 100% {
+        transform: translateY(-50%) rotate(0deg);
+    }
+
+    25% {
+        transform: translateY(-50%) rotate(-8deg);
+    }
+
+    50% {
+        transform: translateY(-50%) rotate(8deg);
+    }
+
+    75% {
+        transform: translateY(-50%) rotate(-5deg);
+    }
+}
+
+@keyframes floatingHeart {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Bid details */
+.bid-card h3 {
+    color: #8b2945;
+    font-family: "Playfair Display", serif;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.bid-card p {
+    color: #a34e67;
+    margin: 8px 0;
+}
+
+/* Buttons */
+.bid-card button {
+    border: 1px solid #c94f70;
+    background: transparent;
+    color: #9b2949;
+    border-radius: 25px;
+    padding: 9px 18px;
+    margin: 12px 6px 0 0;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.bid-card button:hover {
+    background: #9b2949;
+    color: white;
+}
+
+/* Mobile layout */
+@media (max-width: 800px) {
+    .bid-grid {
+        grid-template-columns: 1fr;
+    }
+}
     </style>
 
 </head>
@@ -1694,6 +1831,24 @@
 /* =========================================
    LOAD REAL BID DATA
 ========================================= */
+async function withdrawBid(auctionId) {
+    const confirmed = confirm("Withdraw from this auction?");
+    if (!confirmed) return;
+
+    const { error } = await supabaseClient
+        .from("bids")
+        .delete()
+        .eq("auction_id", auctionId);
+
+    if (error) {
+        alert(error.message);
+        return;
+    }
+
+    alert("Bid withdrawn successfully!");
+    loadBidData();
+}
+
 
 async function loadBidData() {
 
@@ -1797,8 +1952,15 @@ async function loadBidData() {
                 </div>
 
                 <div class="bid-status">
-                    <span>● ACTIVE</span>
-                </div>
+                <span>● ACTIVE</span>
+
+                <button
+                class="withdraw-button"
+                onclick="withdrawBid('${bid.auction_id}')"
+                >
+                Withdraw
+                </button>
+            </div>
 
             </div>
 
@@ -1857,7 +2019,9 @@ async function loadBidData() {
 
 /* LOAD BID DATA */
 
-loadBidData();
+document.addEventListener("DOMContentLoaded", () => {
+    loadBidData();
+});
         loadProfile();
 
     </script>
