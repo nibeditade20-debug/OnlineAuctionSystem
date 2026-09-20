@@ -376,23 +376,26 @@ makeupCards.forEach((card, index) => {
             Current bid: ₹${startingPrice.toLocaleString("en-IN")}
         </div>
 
-        <button class="makeup-place-btn">
-            Place Bid 💄
-        </button>
+        
     `;
 
     card.appendChild(controls);
 
-    controls.querySelector("button").addEventListener("click", () => {
-        startMakeupBid(card);
-    });
+    
 });
 
 
 function startMakeupBid(card) {
     const product = card.dataset.product;
     const currentBid = Number(card.dataset.currentBid);
-    const newBid = currentBid + 500;
+    const newBid = Number(
+    prompt(`Current bid: ₹${currentBid}\nEnter your bid amount:`)
+);
+
+if (!newBid || newBid <= currentBid) {
+    alert("Please enter a higher bid amount.");
+    return;
+}
 
     const splash = document.createElement("div");
     splash.className = "devil-splash";

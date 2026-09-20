@@ -11,15 +11,23 @@ document.addEventListener("DOMContentLoaded", () => {
             priceElement.textContent.replace(/[^\d]/g, "")
         );
 
-        let currentBid = startingPrice;
+       let currentBid = startingPrice;
+
+function updateCurrentBid() {
+    const bidElements = card.querySelectorAll(
+        ".makeup-current-bid, .current-bid"
+    );
+
+    bidElements.forEach(element => {
+        element.innerHTML = `Current bid: ₹${currentBid.toLocaleString("en-IN")}`;
+    });
+}
 
         const controls = document.createElement("div");
         controls.className = "makeup-bid-controls";
 
         controls.innerHTML = `
-            <p class="makeup-current-bid">
-                Current bid: ₹<span>${currentBid.toLocaleString("en-IN")}</span>
-            </p>
+          
 
             <button class="makeup-place-bid">
                 Place Bid ♡
@@ -59,7 +67,7 @@ function showDevilAnimation(callback) {
     setTimeout(() => {
         overlay.remove();
         callback();
-    }, 15000);
+    }, 5000);
 }
 
 function openBidMonitor(card, currentBid, onBid) {
@@ -106,7 +114,20 @@ function openBidMonitor(card, currentBid, onBid) {
         }
 
         onBid(newBid);
-        modal.remove();
+
+// Update every Current bid text on this card
+card.querySelectorAll("*").forEach(element => {
+    if (
+        element.children.length === 0 &&
+        element.textContent.trim().startsWith("Current bid:")
+    ) {
+        element.textContent =
+            `Current bid: ₹${newBid.toLocaleString("en-IN")}`;
+    }
+});
+
+card.dataset.currentBid = newBid;
+modal.remove();
     };
 }
 
