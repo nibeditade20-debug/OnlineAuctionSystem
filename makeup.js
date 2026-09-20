@@ -1,7 +1,4 @@
-const makeupSupabase = window.supabase.createClient(
-    "https://sbwuvdfzeshvoovduboq.supabase.co",
-    "sb_publishable_xgfzuys_8arH-sbc3g6xTA_MMFimzee"
-);
+const makeupSupabase = window.authClient;
 document.addEventListener("DOMContentLoaded", () => {
     // Remove login and register buttons
     document.querySelector(".nav-buttons")?.remove();
