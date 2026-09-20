@@ -1,4 +1,4 @@
-const makeupSupabase = window.authClient;
+const makeupSupabase = auctionSupabase;
 document.addEventListener("DOMContentLoaded", () => {
     // Remove login and register buttons
     document.querySelector(".nav-buttons")?.remove();
